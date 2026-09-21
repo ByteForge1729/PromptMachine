@@ -1,0 +1,150 @@
+diff -ru '--exclude=state.json' spliteasy-before/01-scope.md ultimate-prompt-engine/examples/spliteasy/spec/01-scope.md
+--- spliteasy-before/01-scope.md	2026-09-21 06:05:15.255099629 +0000
++++ ultimate-prompt-engine/examples/spliteasy/spec/01-scope.md	2026-09-21 06:05:15.270053973 +0000
+@@ -12,6 +12,7 @@
+ | Seven-level ranks with the debt monster, still images | The only reason to pick this over Splitwise | D6 to D10, D13 |
+ | Reminders: push for members, WhatsApp cards for ghosts | Nobody wants to remind friends about money themselves | D7, D11 |
+ | Offline viewing and offline expense entry | Trips have bad signal | D15, A1 |
++| Account deletion, privacy notice, backups, abuse limits | Required to list on Play; money records must survive | A42–A46 |
+ 
+ ## v1
+ 
+diff -ru '--exclude=state.json' spliteasy-before/03-data-model.md ultimate-prompt-engine/examples/spliteasy/spec/03-data-model.md
+--- spliteasy-before/03-data-model.md	2026-09-21 06:05:15.255472971 +0000
++++ ultimate-prompt-engine/examples/spliteasy/spec/03-data-model.md	2026-09-21 06:05:15.269647616 +0000
+@@ -92,6 +92,7 @@
+ 5. A settlement's status never moves backwards.
+ 6. No money field is ever a fraction.
+ 7. Two phones showing the same group and the same `updated_at` show identical numbers.
++8. Removing a person's name (account deletion or a ghost's removal request) never changes any balance. (A42, A46)
+ 
+ ## Derived values
+ 
+Only in ultimate-prompt-engine/examples/spliteasy/spec/04-features: account-and-privacy.md
+diff -ru '--exclude=state.json' spliteasy-before/04-features/ghost-members.md ultimate-prompt-engine/examples/spliteasy/spec/04-features/ghost-members.md
+--- spliteasy-before/04-features/ghost-members.md	2026-09-21 06:05:15.254657682 +0000
++++ ultimate-prompt-engine/examples/spliteasy/spec/04-features/ghost-members.md	2026-09-21 06:05:15.269928412 +0000
+@@ -1,6 +1,6 @@
+ # Ghost members
+ 
+-**Tier:** v0 · **Sources:** D2, D9, D11, A30, A37
++**Tier:** v0 · **Sources:** D2, D9, D11, A30, A37, A46
+ 
+ ## Behaviour
+ 1. Any member can add a ghost by typing a name. Nothing else is stored about a ghost.
+@@ -11,6 +11,8 @@
+    the ghost becomes their membership with full history. The group is notified.
+ 5. Settlements to or from a ghost are always manual (no UPI ID). The group creator taps
+    "Got it" or "Not paid" on the ghost's behalf. (A30)
++6. If a ghost asks to be removed, the group creator replaces the name with "Removed person";
++   amounts and history stay so no balance changes. (A46)
+ 
+ ## States
+ - Ghost row shows the character and a "hasn't joined" tag.
+@@ -29,3 +31,5 @@
+ - [ ] Given a claim link created 15 days ago, when it is opened, then it is refused.
+ - [ ] Given Rahul marks "I paid" to ghost Amit, when Priya (creator) opens the group, then
+       she sees "Got it" and "Not paid" for that settlement and Rahul does not.
++- [ ] Given ghost Amit owing ₹500 is renamed to "Removed person", then every member's balance
++      is unchanged.
+diff -ru '--exclude=state.json' spliteasy-before/05-architecture.md ultimate-prompt-engine/examples/spliteasy/spec/05-architecture.md
+--- spliteasy-before/05-architecture.md	2026-09-21 06:05:15.255576727 +0000
++++ ultimate-prompt-engine/examples/spliteasy/spec/05-architecture.md	2026-09-21 06:05:15.270136168 +0000
+@@ -16,6 +16,8 @@
+ | Pay | UPI intent link: `upi://pay?pa=<id>&pn=<name>&am=<amount>&cu=INR&tn=<note>` | Opens the user's own UPI app; no payment licence | D1 |
+ | Share cards | Render a view to PNG on the phone, share via the system share sheet | Works offline, no server image rendering | D11 |
+ | Characters | Bundled PNGs, motion in app code | v0 still images | D13 |
++| Backups | Firestore daily scheduled backup, 14-week retention | Recover money records | A44 |
++| Deletion page | A page on Firebase Hosting where a user can request account deletion without the app | Play requirement | A42 |
+ 
+ ## Boundaries
+ 
+diff -ru '--exclude=state.json' spliteasy-before/07-decisions.md ultimate-prompt-engine/examples/spliteasy/spec/07-decisions.md
+--- spliteasy-before/07-decisions.md	2026-09-21 06:05:15.255750772 +0000
++++ ultimate-prompt-engine/examples/spliteasy/spec/07-decisions.md	2026-09-21 06:05:15.269325946 +0000
+@@ -22,6 +22,7 @@
+ | D13 | v0 still images with code-driven motion; live animation in v1 | 5 |
+ | D14 | **Must never happen: a wrong balance** | 5 |
+ | D15 | Offline: last known balance with its time; offline expenses marked "not synced" | gate |
++| D16 | No age check; under-18 use accepted as a known risk | amend 2026-09-21 |
+ 
+ ## Assumed — review first
+ 
+@@ -79,6 +80,19 @@
+ | A40 | If the group creator deletes their account, the longest-standing member becomes creator | Groups need an owner for thresholds and ghosts | cheap |
+ | A41 | A settlement cannot exceed what the payer owes that receiver; repeat taps within 60 s blocked | Prevents overpayment and double claims | cheap |
+ 
++## Amendment 2026-09-21 — Operations lens
++
++Added after the skill gained its Operations lens, which found five gaps in this spec.
++Nothing earlier was superseded; A13 is extended by A42.
++
++| # | Decision | Why | Reversibility | Evidence |
++|---|---|---|---|---|
++| A42 | Account deletion inside the app **and** on a web page; personal data erased, shared records stay as "Deleted user" (extends A13) | Google Play requires both paths for apps with accounts | costly if skipped: listing rejected | [Play Console Help](https://support.google.com/googleplay/android-developer/answer/13327111?hl=en) (documented) |
++| A43 | Privacy policy, consent notice at sign-up, Play data safety form | DPDP Rules 2025: clear consent notices, erasure within 90 days | cheap | [PIB, DPDP Rules](https://www.pib.gov.in/PressReleasePage.aspx?PRID=2190014&reg=3&lang=2) (documented) |
++| A44 | Daily Firestore scheduled backup, kept 14 weeks | Money records must be recoverable; needs Blaze, which A36 already requires | cheap | [Firestore backups](https://firebase.google.com/docs/firestore/backups) (documented) |
++| A45 | Abuse limits: 20 invites and 60 expenses per member per hour, 50 members per group | Stops spam invites and runaway scripts | cheap | my judgment |
++| A46 | A ghost can ask to be removed: name replaced with "Removed person", amounts kept | Erasure for non-users without changing anyone's balance (D14) | cheap | my judgment |
++
+ ## Superseded
+ 
+ | # | Was | Replaced by | Round |
+diff -ru '--exclude=state.json' spliteasy-before/08-risks.md ultimate-prompt-engine/examples/spliteasy/spec/08-risks.md
+--- spliteasy-before/08-risks.md	2026-09-21 06:05:15.255881539 +0000
++++ ultimate-prompt-engine/examples/spliteasy/spec/08-risks.md	2026-09-21 06:05:15.269543953 +0000
+@@ -11,3 +11,5 @@
+ | Rounding or sync bug shows a wrong balance | medium | Breaks the must-never rule; trust gone | Invariant tests, server-only computation, property-based tests | mitigated |
+ | The switch to dev builds slows iteration | medium | Slower testing than Expo Go's QR code | One dev client build, then JS reloads as before | accepted |
+ | Old app versions still installed | high | Different behaviour across friends | Force-update setting (A18) | mitigated |
++| Under-18 users' data stored without parental consent | medium (some first-years are 17) | Breach of DPDP Rules once in force; complaint or takedown | None, by choice (D16) | **accepted by user** |
++| Missing privacy and deletion requirements block the Play listing | high if skipped | Release rejected | A42, A43 | mitigated |
+diff -ru '--exclude=state.json' spliteasy-before/10-build-plan.md ultimate-prompt-engine/examples/spliteasy/spec/10-build-plan.md
+--- spliteasy-before/10-build-plan.md	2026-09-21 06:05:15.256057527 +0000
++++ ultimate-prompt-engine/examples/spliteasy/spec/10-build-plan.md	2026-09-21 06:05:15.270289359 +0000
+@@ -5,7 +5,7 @@
+ ## M0 — Foundations
+ **Delivers:** dev build via EAS, Firebase project on Blaze with a budget alert, Google
+ sign-in, Crashlytics, Remote Config minimum version, security rules that deny everything
+-by default.
++by default, daily backups (A44), consent notice at sign-up (A43).
+ **Depends on:** —
+ **Done when:** a signed-in user sees an empty home screen on a physical Android phone;
+ a forced crash appears in Crashlytics.
+@@ -41,6 +41,8 @@
+ **Done when:** ghost-members and reminders acceptance criteria pass.
+ 
+ ## M6 — Release to friends
+-**Delivers:** internal testing track release under DormWorks, app icon and splash.
++**Delivers:** internal testing track release under DormWorks, app icon and splash, account
++deletion in the app and on a web page (A42), privacy policy and Play data safety form (A43),
++abuse limits (A45).
+ **Depends on:** M0–M5
+ **Done when:** 3 groups are using it; week-8 success check scheduled.
+diff -ru '--exclude=state.json' spliteasy-before/SUMMARY.md ultimate-prompt-engine/examples/spliteasy/spec/SUMMARY.md
+--- spliteasy-before/SUMMARY.md	2026-09-21 06:05:15.256318444 +0000
++++ ultimate-prompt-engine/examples/spliteasy/spec/SUMMARY.md	2026-09-21 06:05:15.270579395 +0000
+@@ -21,7 +21,13 @@
+ Mobile      ########  8/8
+ Experience  ########  12/12
+ ```
+-Decisions: 15 yours · 41 assumed (14 found while writing this spec) · 3 deferred · 1 unverified
++Decisions: 16 yours · 46 assumed (14 found while writing this spec, 5 added by amendment) · 3 deferred · 1 unverified
++
++## Amended 2026-09-21
++
++The Operations lens found five gaps: account deletion (Play requires it in-app and on the
++web), privacy notice, backups, abuse limits, and removal requests from ghosts. Added as
++A42–A46 with a new feature file. You chose no age check (D16), recorded as an accepted risk.
+ 
+ ## Review these first
+ 
+@@ -63,7 +69,7 @@
+ | [01-scope.md](01-scope.md) | What is in v0, v1, later, and never |
+ | [02-users-and-flows.md](02-users-and-flows.md) | Who uses it and every step they take |
+ | [03-data-model.md](03-data-model.md) | What is stored, the money maths, the rules that must always hold |
+-| [04-features/](04-features/) | One file per feature with acceptance checks |
++| [04-features/](04-features/) | One file per feature with acceptance checks (account-and-privacy added 2026-09-21) |
+ | [05-architecture.md](05-architecture.md) | Stack, phone versus server, cost |
+ | [06-experience.md](06-experience.md) | Look, screens, characters, asset delivery spec, voice |
+ | [07-decisions.md](07-decisions.md) | Every decision and why |

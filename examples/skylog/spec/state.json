@@ -1,0 +1,401 @@
+{
+  "skill": "ultimate-prompt-engine",
+  "schema_version": 1,
+  "project": "Skylog",
+  "archetype": "web-app",
+  "depth": "quick",
+  "phase": "emitted",
+  "round": 3,
+  "round_budget": 3,
+  "lenses": [
+    "product",
+    "feature",
+    "experience",
+    "systems",
+    "operations",
+    "web-app"
+  ],
+  "decisions": [
+    {
+      "id": "D1",
+      "q": "Both jobs from day one: campus nights and trip weekends",
+      "answer": "Both jobs from day one: campus nights and trip weekends",
+      "status": "answered",
+      "found_at_emit": false
+    },
+    {
+      "id": "D2",
+      "q": "Logging is a few taps, notes added later",
+      "answer": "Logging is a few taps, notes added later",
+      "status": "answered",
+      "found_at_emit": false
+    },
+    {
+      "id": "D3",
+      "q": "Members only",
+      "answer": "Members only",
+      "status": "answered",
+      "found_at_emit": false
+    },
+    {
+      "id": "D4",
+      "q": "Quick interview depth",
+      "answer": "Quick interview depth",
+      "status": "answered",
+      "found_at_emit": false
+    },
+    {
+      "id": "D5",
+      "q": "Logs saved on the phone with no signal, uploaded later",
+      "answer": "Logs saved on the phone with no signal, uploaded later",
+      "status": "answered",
+      "found_at_emit": false
+    },
+    {
+      "id": "D6",
+      "q": "Show the raw forecast",
+      "answer": "Show the raw forecast",
+      "status": "answered",
+      "found_at_emit": false
+    },
+    {
+      "id": "D7",
+      "q": "Join through an invite link from a coordinator",
+      "answer": "Join through an invite link from a coordinator",
+      "status": "answered",
+      "found_at_emit": false
+    },
+    {
+      "id": "D8",
+      "q": "The app only ranks; trips are organised on WhatsApp",
+      "answer": "The app only ranks; trips are organised on WhatsApp",
+      "status": "answered",
+      "found_at_emit": false
+    },
+    {
+      "id": "D9",
+      "q": "**Must never: present a cloudy night as a good one.** No \"best\", only a ranking ",
+      "answer": "**Must never: present a cloudy night as a good one.** No \"best\", only a ranking with model agreement",
+      "status": "answered",
+      "found_at_emit": false
+    },
+    {
+      "id": "D10",
+      "q": "Season view in the cloudy months",
+      "answer": "Season view in the cloudy months",
+      "status": "answered",
+      "found_at_emit": false
+    },
+    {
+      "id": "D11",
+      "q": "Success: a trip chosen with the app turned out clear",
+      "answer": "Success: a trip chosen with the app turned out clear",
+      "status": "answered",
+      "found_at_emit": false
+    },
+    {
+      "id": "D12",
+      "q": "Type 2 letters and pick a suggestion, visible objects first",
+      "answer": "Type 2 letters and pick a suggestion, visible objects first",
+      "status": "answered",
+      "found_at_emit": false
+    },
+    {
+      "id": "A2",
+      "q": "**Custom SMTP for login emails**",
+      "answer": "**Custom SMTP for login emails**",
+      "status": "auto-decided",
+      "found_at_emit": true
+    },
+    {
+      "id": "A3",
+      "q": "**Daily keep-alive request**",
+      "answer": "**Daily keep-alive request**",
+      "status": "auto-decided",
+      "found_at_emit": true
+    },
+    {
+      "id": "A4",
+      "q": "Observation IDs created on the phone; uploads stored once per ID",
+      "answer": "Observation IDs created on the phone; uploads stored once per ID",
+      "status": "auto-decided",
+      "found_at_emit": false
+    },
+    {
+      "id": "A1",
+      "q": "Supabase free tier (Postgres, row-level security, email login)",
+      "answer": "Supabase free tier (Postgres, row-level security, email login)",
+      "status": "auto-decided",
+      "found_at_emit": false
+    },
+    {
+      "id": "A5",
+      "q": "Prompt iPhone users to add the app to their home screen",
+      "answer": "Prompt iPhone users to add the app to their home screen",
+      "status": "auto-decided",
+      "found_at_emit": false
+    },
+    {
+      "id": "A6",
+      "q": "Open-Meteo, three models, credited on screen",
+      "answer": "Open-Meteo, three models, credited on screen",
+      "status": "auto-decided",
+      "found_at_emit": false
+    },
+    {
+      "id": "A0",
+      "q": "Build order: membership, log, tonight, trips, season view",
+      "answer": "Build order: membership, log, tonight, trips, season view",
+      "status": "auto-decided",
+      "found_at_emit": false
+    },
+    {
+      "id": "A7",
+      "q": "Daytime look: clean observer's notebook; red on black from sunset",
+      "answer": "Daytime look: clean observer's notebook; red on black from sunset",
+      "status": "auto-decided",
+      "found_at_emit": false
+    },
+    {
+      "id": "A8",
+      "q": "Join: name + email, then a login link; 90-day sessions",
+      "answer": "Join: name + email, then a login link; 90-day sessions",
+      "status": "auto-decided",
+      "found_at_emit": false
+    },
+    {
+      "id": "A9",
+      "q": "Roles: member, coordinator; coordinators reset links, remove members, manage sit",
+      "answer": "Roles: member, coordinator; coordinators reset links, remove members, manage sites",
+      "status": "auto-decided",
+      "found_at_emit": false
+    },
+    {
+      "id": "A10",
+      "q": "Up to 10 sites, coordinators only; campus plus dark sites",
+      "answer": "Up to 10 sites, coordinators only; campus plus dark sites",
+      "status": "auto-decided",
+      "found_at_emit": false
+    },
+    {
+      "id": "A11",
+      "q": "Bundled catalog: Moon, planets, Messier, ~300 named stars, ~100 showpiece NGC/IC",
+      "answer": "Bundled catalog: Moon, planets, Messier, ~300 named stars, ~100 showpiece NGC/IC",
+      "status": "auto-decided",
+      "found_at_emit": false
+    },
+    {
+      "id": "A12",
+      "q": "Log fields: object, site, time, 1\u20135 rating, optional notes. No photos in v0",
+      "answer": "Log fields: object, site, time, 1\u20135 rating, optional notes. No photos in v0",
+      "status": "auto-decided",
+      "found_at_emit": false
+    },
+    {
+      "id": "A13",
+      "q": "Members edit/delete their own logs; coordinators edit any and restore",
+      "answer": "Members edit/delete their own logs; coordinators edit any and restore",
+      "status": "auto-decided",
+      "found_at_emit": false
+    },
+    {
+      "id": "A14",
+      "q": "Scoring: clear = under 30% cloud in dark hours; Moon discounts dark-site hours o",
+      "answer": "Scoring: clear = under 30% cloud in dark hours; Moon discounts dark-site hours only",
+      "status": "auto-decided",
+      "found_at_emit": false
+    },
+    {
+      "id": "A16",
+      "q": "Secondary success: 15 members log 5+ nights",
+      "answer": "Secondary success: 15 members log 5+ nights",
+      "status": "auto-decided",
+      "found_at_emit": false
+    },
+    {
+      "id": "A17",
+      "q": "Season view contents: usual clear months, last season's best logs, what opens ne",
+      "answer": "Season view contents: usual clear months, last season's best logs, what opens next",
+      "status": "auto-decided",
+      "found_at_emit": false
+    },
+    {
+      "id": "A18",
+      "q": "Non-goals: star map, astrophotography, public showcase, native app",
+      "answer": "Non-goals: star map, astrophotography, public showcase, native app",
+      "status": "auto-decided",
+      "found_at_emit": false
+    },
+    {
+      "id": "A19",
+      "q": "Coordinators can export all logs as CSV",
+      "answer": "Coordinators can export all logs as CSV",
+      "status": "auto-decided",
+      "found_at_emit": false
+    },
+    {
+      "id": "A20",
+      "q": "Monthly CSV export by a coordinator as a backup",
+      "answer": "Monthly CSV export by a coordinator as a backup",
+      "status": "auto-decided",
+      "found_at_emit": false
+    },
+    {
+      "id": "A21",
+      "q": "Account deletion erases name and email; logs remain as \"Former member\"",
+      "answer": "Account deletion erases name and email; logs remain as \"Former member\"",
+      "status": "auto-decided",
+      "found_at_emit": false
+    },
+    {
+      "id": "A22",
+      "q": "Free static hosting",
+      "answer": "Free static hosting",
+      "status": "auto-decided",
+      "found_at_emit": false
+    },
+    {
+      "id": "A23",
+      "q": "Latest two versions of the major browsers; phone first",
+      "answer": "Latest two versions of the major browsers; phone first",
+      "status": "auto-decided",
+      "found_at_emit": false
+    },
+    {
+      "id": "A24",
+      "q": "\"Open in Chrome / Safari\" prompt inside WhatsApp's browser",
+      "answer": "\"Open in Chrome / Safari\" prompt inside WhatsApp's browser",
+      "status": "auto-decided",
+      "found_at_emit": false
+    },
+    {
+      "id": "A25",
+      "q": "Forecasts older than 6 h or with fewer than 2 models: numbers shown, ranking hid",
+      "answer": "Forecasts older than 6 h or with fewer than 2 models: numbers shown, ranking hidden",
+      "status": "auto-decided",
+      "found_at_emit": false
+    },
+    {
+      "id": "A26",
+      "q": "Times in IST; a night is named by the date it starts",
+      "answer": "Times in IST; a night is named by the date it starts",
+      "status": "auto-decided",
+      "found_at_emit": false
+    },
+    {
+      "id": "A15",
+      "q": "Save the weekend ranking every Monday",
+      "answer": "Save the weekend ranking every Monday",
+      "status": "auto-decided",
+      "found_at_emit": true
+    },
+    {
+      "id": "A27",
+      "q": "Working title \"Skylog\"",
+      "answer": "Working title \"Skylog\"",
+      "status": "auto-decided",
+      "found_at_emit": true
+    },
+    {
+      "id": "A28",
+      "q": "Agreement counts clear hours ignoring the Moon; the Moon is shown separately",
+      "answer": "Agreement counts clear hours ignoring the Moon; the Moon is shown separately",
+      "status": "auto-decided",
+      "found_at_emit": true
+    }
+  ],
+  "contradictions": [
+    {
+      "between": [
+        "R0.worth-it: both",
+        "D4 quick depth"
+      ],
+      "issue": "Both jobs in a Quick-mode project doubles scope",
+      "resolved_by": "A0 build order"
+    },
+    {
+      "between": [
+        "brief: tells members",
+        "R1 raw forecast"
+      ],
+      "issue": "Raw numbers stop the app from telling anyone anything",
+      "resolved_by": "R2 raw + mark, then D9 rank only"
+    },
+    {
+      "between": [
+        "D2 few taps",
+        "R3 type the name"
+      ],
+      "issue": "Typing in the dark contradicts 3-tap logging",
+      "resolved_by": "D12"
+    },
+    {
+      "between": [
+        "R2 mark the best",
+        "R3 never say best"
+      ],
+      "issue": "Highlight vs no highlight",
+      "resolved_by": "D9 ranking"
+    }
+  ],
+  "open_cascades": [],
+  "research": [
+    {
+      "finding": "Mumbai skies are Bortle 8-9; dark sites 80-120 km away",
+      "label": "widely reported",
+      "source": "https://www.cosmicstays.com/stargazing/best-stargazing-spots-near-pune-mumbai"
+    },
+    {
+      "finding": "June-August cloudy ~80% of nights; Nov-Feb best",
+      "label": "widely reported",
+      "source": "https://www.cosmicstays.com/stargazing/best-stargazing-spots-near-pune-mumbai"
+    },
+    {
+      "finding": "Observers want phone use at the eyepiece, red mode, less typing, export",
+      "label": "documented",
+      "source": "https://www.cloudynights.com/forums/topic/630308-which-software-is-best-for-visual-observation-planning-charting-and-logging/"
+    },
+    {
+      "finding": "Open-Meteo free non-commercial, 10k calls/day, no key, CC BY 4.0",
+      "label": "documented",
+      "source": "https://open-meteo.com/"
+    },
+    {
+      "finding": "Supabase default SMTP: 2 emails/hour, team addresses only",
+      "label": "documented",
+      "source": "https://supabase.com/docs/guides/auth/auth-smtp"
+    },
+    {
+      "finding": "Supabase free projects pause after ~1 week of low activity",
+      "label": "documented",
+      "source": "https://supabase.com/docs/guides/platform/free-project-pausing"
+    },
+    {
+      "finding": "Safari deletes script-writable storage after 7 days without interaction; home-screen web apps exempt",
+      "label": "documented",
+      "source": "https://webkit.org/tracking-prevention/"
+    }
+  ],
+  "coverage": {
+    "product": {
+      "required": 8,
+      "done": 8
+    },
+    "feature": {
+      "required": 10,
+      "done": 10
+    },
+    "experience": {
+      "required": 12,
+      "done": 12
+    },
+    "systems": {
+      "required": 12,
+      "done": 12
+    },
+    "operations": {
+      "required": 12,
+      "done": 12
+    }
+  }
+}

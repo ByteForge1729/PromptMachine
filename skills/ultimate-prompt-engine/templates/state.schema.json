@@ -1,0 +1,72 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "ultimate-prompt-engine interview state",
+  "description": "Machine state for resuming and amending an interview. Written after every Phase 3 review.",
+  "type": "object",
+  "required": ["skill", "project", "archetype", "depth", "round", "round_budget", "lenses", "decisions", "contradictions", "open_cascades", "coverage"],
+  "properties": {
+    "skill": {"const": "ultimate-prompt-engine"},
+    "schema_version": {"type": "integer", "default": 1},
+    "project": {"type": "string"},
+    "archetype": {"type": "string"},
+    "depth": {"enum": ["quick", "standard", "deep"]},
+    "phase": {"enum": ["intake", "interview", "gate_passed", "emitted", "amending"]},
+    "round": {"type": "integer", "minimum": 0},
+    "round_budget": {"type": "integer"},
+    "lenses": {"type": "array", "items": {"type": "string"}},
+    "decisions": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["id", "q", "answer", "status"],
+        "properties": {
+          "id": {"type": "string", "description": "Stable id, e.g. R3.size or A12"},
+          "q": {"type": "string"},
+          "answer": {"type": "string"},
+          "status": {"enum": ["open", "answered", "auto-decided", "deferred", "needs_clarification", "contradicted", "superseded"]},
+          "round": {"type": "integer"},
+          "source": {"type": "string", "description": "'user freeform', 'option', or a URL for research-backed decisions"},
+          "why": {"type": "string"},
+          "reversibility": {"enum": ["cheap", "costly", "one-way"]},
+          "closes": {"type": "array", "items": {"type": "string"}},
+          "superseded_by": {"type": "string"},
+          "found_at_emit": {"type": "boolean"}
+        }
+      }
+    },
+    "contradictions": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["between", "issue"],
+        "properties": {
+          "between": {"type": "array", "items": {"type": "string"}},
+          "issue": {"type": "string"},
+          "resolved_by": {"type": ["string", "null"]}
+        }
+      }
+    },
+    "open_cascades": {"type": "array", "items": {"type": "string"}},
+    "research": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["finding", "label"],
+        "properties": {
+          "finding": {"type": "string"},
+          "label": {"enum": ["documented", "widely reported", "my judgment"]},
+          "source": {"type": "string"}
+        }
+      }
+    },
+    "references": {
+      "type": "array",
+      "description": "User-supplied taste references and what was extracted from each",
+      "items": {"type": "object", "properties": {"ref": {"type": "string"}, "took": {"type": "string"}, "palette": {"type": "array", "items": {"type": "string"}}}}
+    },
+    "coverage": {
+      "type": "object",
+      "additionalProperties": {"type": "object", "required": ["required", "done"], "properties": {"required": {"type": "integer"}, "done": {"type": "integer"}}}
+    }
+  }
+}

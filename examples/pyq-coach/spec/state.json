@@ -1,0 +1,640 @@
+{
+  "skill": "ultimate-prompt-engine",
+  "schema_version": 1,
+  "project": "PYQ Coach",
+  "archetype": "ml-system (with web-app)",
+  "depth": "standard",
+  "phase": "emitted",
+  "round": 5,
+  "round_budget": 5,
+  "lenses": [
+    "product",
+    "feature",
+    "experience",
+    "systems",
+    "operations",
+    "ml-system",
+    "web-app"
+  ],
+  "decisions": [
+    {
+      "id": "B1",
+      "q": "Next.js, Supabase, Vercel",
+      "answer": "Next.js, Supabase, Vercel",
+      "status": "answered",
+      "source": "brief",
+      "found_at_emit": false
+    },
+    {
+      "id": "B2",
+      "q": "A hosted AI model (Claude or GPT) through the API",
+      "answer": "A hosted AI model (Claude or GPT) through the API",
+      "status": "answered",
+      "source": "brief",
+      "found_at_emit": false
+    },
+    {
+      "id": "B3",
+      "q": "Any course; seniors upload",
+      "answer": "Any course; seniors upload",
+      "status": "answered",
+      "source": "brief",
+      "found_at_emit": false
+    },
+    {
+      "id": "B4",
+      "q": "Must read scanned papers and handwritten solutions",
+      "answer": "Must read scanned papers and handwritten solutions",
+      "status": "answered",
+      "source": "brief",
+      "found_at_emit": false
+    },
+    {
+      "id": "B5",
+      "q": "A wrong solution is worse than none (restated as A7)",
+      "answer": "A wrong solution is worse than none (restated as A7)",
+      "status": "answered",
+      "source": "brief",
+      "found_at_emit": false
+    },
+    {
+      "id": "D1",
+      "q": "Shared bank free for everyone; students may add their own API key for personal g",
+      "answer": "Shared bank free for everyone; students may add their own API key for personal generation",
+      "status": "answered",
+      "source": "option",
+      "found_at_emit": false
+    },
+    {
+      "id": "D2",
+      "q": "Unconfirmed solutions sit behind a red \"checks disagreed\" card and never enter p",
+      "answer": "Unconfirmed solutions sit behind a red \"checks disagreed\" card and never enter plans",
+      "status": "answered",
+      "source": "option",
+      "found_at_emit": false
+    },
+    {
+      "id": "D3",
+      "q": "Only mid-sem and end-sem papers from past semesters",
+      "answer": "Only mid-sem and end-sem papers from past semesters",
+      "status": "answered",
+      "source": "option",
+      "found_at_emit": false
+    },
+    {
+      "id": "D4",
+      "q": "Standard interview depth",
+      "answer": "Standard interview depth",
+      "status": "answered",
+      "source": "option",
+      "found_at_emit": false
+    },
+    {
+      "id": "D5",
+      "q": "Own-key questions are private, shareable by their owner",
+      "answer": "Own-key questions are private, shareable by their owner",
+      "status": "answered",
+      "source": "option",
+      "found_at_emit": false
+    },
+    {
+      "id": "D6",
+      "q": "No leaderboard",
+      "answer": "No leaderboard",
+      "status": "answered",
+      "source": "option",
+      "found_at_emit": false
+    },
+    {
+      "id": "D7",
+      "q": "Syllabus pasted from the catalogue by the first uploader, confirmed by a second ",
+      "answer": "Syllabus pasted from the catalogue by the first uploader, confirmed by a second student",
+      "status": "answered",
+      "source": "option",
+      "found_at_emit": false
+    },
+    {
+      "id": "D8",
+      "q": "Look: calm study tool, like Notion or Anki",
+      "answer": "Look: calm study tool, like Notion or Anki",
+      "status": "answered",
+      "source": "option",
+      "found_at_emit": false
+    },
+    {
+      "id": "D9",
+      "q": "First screen: topic map shaded by frequency",
+      "answer": "First screen: topic map shaded by frequency",
+      "status": "answered",
+      "source": "option",
+      "found_at_emit": false
+    },
+    {
+      "id": "D10",
+      "q": "Seniors' handwritten solutions checked exactly like AI ones",
+      "answer": "Seniors' handwritten solutions checked exactly like AI ones",
+      "status": "answered",
+      "source": "option",
+      "found_at_emit": false
+    },
+    {
+      "id": "D11",
+      "q": "Share links open to anyone, no account",
+      "answer": "Share links open to anyone, no account",
+      "status": "answered",
+      "source": "option",
+      "found_at_emit": false
+    },
+    {
+      "id": "D12",
+      "q": "Checker must catch 9 of 10 planted wrong solutions before launch; re-test on cha",
+      "answer": "Checker must catch 9 of 10 planted wrong solutions before launch; re-test on changes",
+      "status": "answered",
+      "source": "option",
+      "found_at_emit": false
+    },
+    {
+      "id": "D13",
+      "q": "A sponsor pays for shared generation",
+      "answer": "A sponsor pays for shared generation",
+      "status": "answered",
+      "source": "option",
+      "found_at_emit": false
+    },
+    {
+      "id": "D14",
+      "q": "Topic map shown even with 1 paper, labelled",
+      "answer": "Topic map shown even with 1 paper, labelled",
+      "status": "answered",
+      "source": "option",
+      "found_at_emit": false
+    },
+    {
+      "id": "D15",
+      "q": "Success: 5+ courses with 5+ papers, 200+ students practising 10+ questions",
+      "answer": "Success: 5+ courses with 5+ papers, 200+ students practising 10+ questions",
+      "status": "answered",
+      "source": "option",
+      "found_at_emit": false
+    },
+    {
+      "id": "D16",
+      "q": "v0 = bank, map, real-question practice, exam plan; AI generation in v1",
+      "answer": "v0 = bank, map, real-question practice, exam plan; AI generation in v1",
+      "status": "answered",
+      "source": "option",
+      "found_at_emit": false
+    },
+    {
+      "id": "D17",
+      "q": "A deleted account's uploads stay, anonymous",
+      "answer": "A deleted account's uploads stay, anonymous",
+      "status": "answered",
+      "source": "option",
+      "found_at_emit": false
+    },
+    {
+      "id": "D18",
+      "q": "18+ confirmation; under-18s use share links only",
+      "answer": "18+ confirmation; under-18s use share links only",
+      "status": "answered",
+      "source": "option",
+      "found_at_emit": false
+    },
+    {
+      "id": "D19",
+      "q": "Plan from frequency plus the student's \"hard\" marks, 3 sessions a day",
+      "answer": "Plan from frequency plus the student's \"hard\" marks, 3 sessions a day",
+      "status": "answered",
+      "source": "option",
+      "found_at_emit": false
+    },
+    {
+      "id": "D20",
+      "q": "A separate \"Important, not asked yet\" branch for fundamental never-asked topics",
+      "answer": "A separate \"Important, not asked yet\" branch for fundamental never-asked topics",
+      "status": "answered",
+      "source": "option",
+      "found_at_emit": false
+    },
+    {
+      "id": "D21",
+      "q": "Scan snippet beside every question; 2 misread reports hide it",
+      "answer": "Scan snippet beside every question; 2 misread reports hide it",
+      "status": "answered",
+      "source": "option",
+      "found_at_emit": false
+    },
+    {
+      "id": "D22",
+      "q": "Launch empty; seniors fill the bank",
+      "answer": "Launch empty; seniors fill the bank",
+      "status": "answered",
+      "source": "option",
+      "found_at_emit": false
+    },
+    {
+      "id": "D23",
+      "q": "The AI suggests which topics are fundamental",
+      "answer": "The AI suggests which topics are fundamental",
+      "status": "answered",
+      "source": "option",
+      "found_at_emit": false
+    },
+    {
+      "id": "D24",
+      "q": "The AI matches questions to merge duplicate papers",
+      "answer": "The AI matches questions to merge duplicate papers",
+      "status": "answered",
+      "source": "option",
+      "found_at_emit": false
+    },
+    {
+      "id": "D25",
+      "q": "Figures cropped from the scan",
+      "answer": "Figures cropped from the scan",
+      "status": "answered",
+      "source": "option",
+      "found_at_emit": false
+    },
+    {
+      "id": "D26",
+      "q": "Old-syllabus questions kept, labelled, never counted",
+      "answer": "Old-syllabus questions kept, labelled, never counted",
+      "status": "answered",
+      "source": "option",
+      "found_at_emit": false
+    },
+    {
+      "id": "D27",
+      "q": "Recent papers count more",
+      "answer": "Recent papers count more",
+      "status": "answered",
+      "source": "option",
+      "found_at_emit": false
+    },
+    {
+      "id": "D28",
+      "q": "One synced account: capture on phone, read on laptop",
+      "answer": "One synced account: capture on phone, read on laptop",
+      "status": "answered",
+      "source": "option",
+      "found_at_emit": false
+    },
+    {
+      "id": "A36",
+      "q": "**v0 hides every senior solution behind a \"Not checked yet\" card**",
+      "answer": "v0 hides every senior solution behind a \"Not checked yet\" card",
+      "status": "auto-decided",
+      "source": "claude",
+      "found_at_emit": true
+    },
+    {
+      "id": "A7",
+      "q": "**Must-never restated:** never present a solution as checked unless it passed; n",
+      "answer": "Must-never restated:** never present a solution as checked unless it passed; never present a guess as a fact",
+      "status": "auto-decided",
+      "source": "claude",
+      "found_at_emit": false
+    },
+    {
+      "id": "A2",
+      "q": "Background jobs, one per page or question",
+      "answer": "Background jobs, one per page or question",
+      "status": "auto-decided",
+      "source": "claude",
+      "found_at_emit": false
+    },
+    {
+      "id": "A1",
+      "q": "v1 code checks run in an isolated sandbox",
+      "answer": "v1 code checks run in an isolated sandbox",
+      "status": "auto-decided",
+      "source": "claude",
+      "found_at_emit": false
+    },
+    {
+      "id": "A5",
+      "q": "Personal API keys never leave the student's device",
+      "answer": "Personal API keys never leave the student's device",
+      "status": "auto-decided",
+      "source": "claude",
+      "found_at_emit": false
+    },
+    {
+      "id": "A3",
+      "q": "Custom SMTP for login emails",
+      "answer": "Custom SMTP for login emails",
+      "status": "auto-decided",
+      "source": "claude",
+      "found_at_emit": false
+    },
+    {
+      "id": "A4",
+      "q": "Daily keep-alive",
+      "answer": "Daily keep-alive",
+      "status": "auto-decided",
+      "source": "claude",
+      "found_at_emit": false
+    },
+    {
+      "id": "A6",
+      "q": "You pay reading costs up to \u20b91,000 a semester, capped; then reading queues",
+      "answer": "You pay reading costs up to \u20b91,000 a semester, capped; then reading queues",
+      "status": "auto-decided",
+      "source": "claude",
+      "found_at_emit": false
+    },
+    {
+      "id": "A12",
+      "q": "Frequencies use marks only if every paper prints marks, else question counts",
+      "answer": "Frequencies use marks only if every paper prints marks, else question counts",
+      "status": "auto-decided",
+      "source": "claude",
+      "found_at_emit": true
+    },
+    {
+      "id": "A8",
+      "q": "The scan is the source of truth; extracted text is a convenience",
+      "answer": "The scan is the source of truth; extracted text is a convenience",
+      "status": "auto-decided",
+      "source": "claude",
+      "found_at_emit": false
+    },
+    {
+      "id": "A9",
+      "q": "@iitb.ac.in email login links",
+      "answer": "@iitb.ac.in email login links",
+      "status": "auto-decided",
+      "source": "claude",
+      "found_at_emit": false
+    },
+    {
+      "id": "A11",
+      "q": "Paper weight halves every 3 years",
+      "answer": "Paper weight halves every 3 years",
+      "status": "auto-decided",
+      "source": "claude",
+      "found_at_emit": false
+    },
+    {
+      "id": "A13",
+      "q": "Under 3 papers: \"rough guide\" label",
+      "answer": "Under 3 papers: \"rough guide\" label",
+      "status": "auto-decided",
+      "source": "claude",
+      "found_at_emit": false
+    },
+    {
+      "id": "A15",
+      "q": "Done / hard marks are private",
+      "answer": "Done / hard marks are private",
+      "status": "auto-decided",
+      "source": "claude",
+      "found_at_emit": false
+    },
+    {
+      "id": "A16",
+      "q": "Share pages: unguessable tokens, not indexed, clean WhatsApp preview, owner hidd",
+      "answer": "Share pages: unguessable tokens, not indexed, clean WhatsApp preview, owner hidden by default",
+      "status": "auto-decided",
+      "source": "claude",
+      "found_at_emit": false
+    },
+    {
+      "id": "A17",
+      "q": "Non-goals: current-semester material, predictions, doubt chat, other colleges",
+      "answer": "Non-goals: current-semester material, predictions, doubt chat, other colleges",
+      "status": "auto-decided",
+      "source": "claude",
+      "found_at_emit": false
+    },
+    {
+      "id": "A18",
+      "q": "Banned phrases: \"will be asked\", \"will come\", \"predicted\", \"sure shot\", \"guarant",
+      "answer": "Banned phrases: \"will be asked\", \"will come\", \"predicted\", \"sure shot\", \"guaranteed\"",
+      "status": "auto-decided",
+      "source": "claude",
+      "found_at_emit": false
+    },
+    {
+      "id": "A19",
+      "q": "Phone capture with blur warning and retake",
+      "answer": "Phone capture with blur warning and retake",
+      "status": "auto-decided",
+      "source": "claude",
+      "found_at_emit": false
+    },
+    {
+      "id": "A20",
+      "q": "Designed for about 5,000 students",
+      "answer": "Designed for about 5,000 students",
+      "status": "auto-decided",
+      "source": "claude",
+      "found_at_emit": false
+    },
+    {
+      "id": "A21",
+      "q": "Weekly database export as backup",
+      "answer": "Weekly database export as backup",
+      "status": "auto-decided",
+      "source": "claude",
+      "found_at_emit": false
+    },
+    {
+      "id": "A22",
+      "q": "Error tracking plus alert on failed reading jobs",
+      "answer": "Error tracking plus alert on failed reading jobs",
+      "status": "auto-decided",
+      "source": "claude",
+      "found_at_emit": false
+    },
+    {
+      "id": "A23",
+      "q": "Claude Haiku 4.5 for reading and tagging; a stronger model via batch for v1",
+      "answer": "Claude Haiku 4.5 for reading and tagging; a stronger model via batch for v1",
+      "status": "auto-decided",
+      "source": "claude",
+      "found_at_emit": false
+    },
+    {
+      "id": "A24",
+      "q": "No offline mode in v0",
+      "answer": "No offline mode in v0",
+      "status": "auto-decided",
+      "source": "claude",
+      "found_at_emit": false
+    },
+    {
+      "id": "A25",
+      "q": "Account deletion in app and on a web page",
+      "answer": "Account deletion in app and on a web page",
+      "status": "auto-decided",
+      "source": "claude",
+      "found_at_emit": false
+    },
+    {
+      "id": "A28",
+      "q": "9 sessions of about 90 minutes; day 3 covers \"not asked yet\" topics",
+      "answer": "9 sessions of about 90 minutes; day 3 covers \"not asked yet\" topics",
+      "status": "auto-decided",
+      "source": "claude",
+      "found_at_emit": false
+    },
+    {
+      "id": "A29",
+      "q": "Upload limits: 30 pages, 20 MB, 20 papers per student per day",
+      "answer": "Upload limits: 30 pages, 20 MB, 20 papers per student per day",
+      "status": "auto-decided",
+      "source": "claude",
+      "found_at_emit": false
+    },
+    {
+      "id": "A30",
+      "q": "Figure crop fails \u2192 show the whole question region",
+      "answer": "Figure crop fails \u2192 show the whole question region",
+      "status": "auto-decided",
+      "source": "claude",
+      "found_at_emit": false
+    },
+    {
+      "id": "A31",
+      "q": "Every question labelled with course, exam, year, number",
+      "answer": "Every question labelled with course, exam, year, number",
+      "status": "auto-decided",
+      "source": "claude",
+      "found_at_emit": false
+    },
+    {
+      "id": "A26",
+      "q": "Syllabus versions with the year they take effect",
+      "answer": "Syllabus versions with the year they take effect",
+      "status": "auto-decided",
+      "source": "claude",
+      "found_at_emit": true
+    },
+    {
+      "id": "A27",
+      "q": "Merge when most questions match; \"merged by AI\" with undo for anyone signed in",
+      "answer": "Merge when most questions match; \"merged by AI\" with undo for anyone signed in",
+      "status": "auto-decided",
+      "source": "claude",
+      "found_at_emit": true
+    },
+    {
+      "id": "A34",
+      "q": "A question on two topics counts half to each",
+      "answer": "A question on two topics counts half to each",
+      "status": "auto-decided",
+      "source": "claude",
+      "found_at_emit": true
+    },
+    {
+      "id": "A35",
+      "q": "v0 share links cover question sets and plans; own-key questions join in v1",
+      "answer": "v0 share links cover question sets and plans; own-key questions join in v1",
+      "status": "auto-decided",
+      "source": "claude",
+      "found_at_emit": true
+    }
+  ],
+  "contradictions": [
+    {
+      "between": [
+        "brief: free",
+        "per-call AI cost"
+      ],
+      "issue": "Free app with paid API calls",
+      "resolved_by": "D1, D13, A6"
+    },
+    {
+      "between": [
+        "brief: wrong solution worse than none",
+        "R0 Q2 show all with warnings"
+      ],
+      "issue": "Showing unconfirmed solutions",
+      "resolved_by": "D2 red card"
+    },
+    {
+      "between": [
+        "brief: leaderboard",
+        "self-reported done"
+      ],
+      "issue": "Gameable and pressure-inducing",
+      "resolved_by": "D6"
+    },
+    {
+      "between": [
+        "D14 map with 1 paper",
+        "D19 plan from frequencies"
+      ],
+      "issue": "Plan looks more certain than data",
+      "resolved_by": "A13 label"
+    },
+    {
+      "between": [
+        "D20 fundamental branch",
+        "syllabus has no ranking"
+      ],
+      "issue": "Who decides fundamental",
+      "resolved_by": "D23"
+    },
+    {
+      "between": [
+        "D10 check senior solutions",
+        "D16 checker in v1"
+      ],
+      "issue": "No checker in v0",
+      "resolved_by": "A36 (found at emit)"
+    }
+  ],
+  "open_cascades": [],
+  "research": [
+    {
+      "finding": "Claude Haiku 4.5 $1/$5, Sonnet 5 $2/$10 per MTok; Batch API 50% off",
+      "label": "documented",
+      "source": "https://platform.claude.com/docs/en/about-claude/pricing"
+    },
+    {
+      "finding": "Program verification improves self-consistency (up to +18% GSM8K, +8% MATH-500)",
+      "label": "documented",
+      "source": "https://paperswithcode.co/paper/2410.12608"
+    },
+    {
+      "finding": "Vercel Hobby functions max 300 s",
+      "label": "documented",
+      "source": "https://vercel.com/docs/functions/configuring-functions/duration"
+    },
+    {
+      "finding": "IITB HSS published an AI policy in 2026 (not opened)",
+      "label": "widely reported",
+      "source": "https://www.hss.iitb.ac.in/sites/default/files/2026-03/HSS%20AI%20Policy%20-%20FINAL.pdf"
+    }
+  ],
+  "coverage": {
+    "product": {
+      "required": 8,
+      "done": 8
+    },
+    "feature": {
+      "required": 10,
+      "done": 10
+    },
+    "experience": {
+      "required": 12,
+      "done": 12
+    },
+    "systems": {
+      "required": 12,
+      "done": 12
+    },
+    "operations": {
+      "required": 12,
+      "done": 12
+    },
+    "ml-system": {
+      "required": 13,
+      "done": 13
+    }
+  }
+}
