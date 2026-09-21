@@ -1,0 +1,460 @@
+{
+  "skill": "ultimate-prompt-engine",
+  "project": "SplitEasy",
+  "archetype": "mobile-app",
+  "depth": "standard",
+  "round": 5,
+  "round_budget": 5,
+  "lenses": [
+    "product",
+    "feature",
+    "mobile-app",
+    "experience"
+  ],
+  "decisions": [
+    {
+      "id": "R0.settle",
+      "q": "How does a debt get paid back?",
+      "answer": "SplitEasy opens GPay with amount prefilled",
+      "status": "answered",
+      "round": 0
+    },
+    {
+      "id": "R0.ghost",
+      "q": "What is a ghost member?",
+      "answer": "Placeholder friend who can claim the profile after installing",
+      "status": "answered",
+      "round": 0
+    },
+    {
+      "id": "R0.pro",
+      "q": "What does Pro include?",
+      "answer": "Removes ads and unlocks features",
+      "status": "deferred",
+      "round": 0,
+      "note": "Deferred to v1 by R1.v0"
+    },
+    {
+      "id": "R0.currency",
+      "q": "Currency handling",
+      "answer": "One currency per group",
+      "status": "answered",
+      "round": 0,
+      "closes": [
+        "FX rates",
+        "per-expense conversion"
+      ]
+    },
+    {
+      "id": "R1.baht",
+      "q": "Pay button in non-INR groups",
+      "answer": "Hidden, settle by hand",
+      "status": "answered",
+      "round": 1,
+      "resolves_conflict": "R0.settle x R0.currency"
+    },
+    {
+      "id": "R1.confirm",
+      "q": "Who confirms a payment arrived",
+      "answer": "Receiver taps Got it",
+      "status": "answered",
+      "round": 1
+    },
+    {
+      "id": "R1.claim",
+      "q": "How a ghost is claimed",
+      "answer": "Personal claim link sent per ghost",
+      "status": "answered",
+      "round": 1
+    },
+    {
+      "id": "R1.v0",
+      "q": "v0 scope",
+      "answer": "Core + debt monster; Pro and ads to v1",
+      "status": "answered",
+      "round": 1
+    },
+    {
+      "id": "R2.feel",
+      "q": "Visual feel",
+      "answer": "pending: user will upload reference images",
+      "status": "open",
+      "round": 2
+    },
+    {
+      "id": "R2.monster_job",
+      "q": "Monster's job",
+      "answer": "Reminds about debts and celebrates when paid",
+      "status": "answered",
+      "round": 2
+    },
+    {
+      "id": "R2.status",
+      "q": "Whose monster",
+      "answer": "Per-person status ladder visible to the group: debtors get a monster sized by amount owed, creditors get positive ranks (prince, king)",
+      "status": "answered",
+      "round": 2,
+      "source": "user freeform"
+    },
+    {
+      "id": "R2.noreply",
+      "q": "Receiver never confirms",
+      "answer": "Auto-confirm after 3 days",
+      "status": "superseded",
+      "round": 2,
+      "superseded_by": "R3.reject"
+    },
+    {
+      "id": "R3.reject",
+      "q": "Stopping fake 'I paid'",
+      "answer": "Monster shrinks on day 3 after \"I paid\"; receiver can press \"Not paid\" until day 30 to reverse it; otherwise final",
+      "status": "answered",
+      "round": 3,
+      "source": "user freeform",
+      "ambiguity": "Auto-confirm at day 3 with a 30-day reversal window, or pending until day 30?"
+    },
+    {
+      "id": "R3.rank_basis",
+      "q": "Rank basis",
+      "answer": "Current balances only; everyone neutral when settled",
+      "status": "answered",
+      "round": 3,
+      "closes": [
+        "lifetime stats"
+      ]
+    },
+    {
+      "id": "R3.size",
+      "q": "Monster size",
+      "answer": "Size by amount owed, anger by age of debt",
+      "status": "answered",
+      "round": 3
+    },
+    {
+      "id": "R3.ghost_rank",
+      "q": "Ghost ranks",
+      "answer": "Ranked exactly like everyone",
+      "status": "answered",
+      "round": 3
+    },
+    {
+      "id": "R4.scale",
+      "q": "Monster thresholds",
+      "answer": "Absolute rupee thresholds, customisable per group",
+      "status": "answered",
+      "round": 4,
+      "source": "user freeform"
+    },
+    {
+      "id": "R4.scale_default",
+      "q": "Default thresholds and smart suggestions",
+      "answer": "v0 ships fixed default thresholds; group sets one number ('a big debt here is Rs X') and the app derives all tier boundaries from it; smart auto-calibration from group spending moves to v1",
+      "status": "auto-decided",
+      "round": 4,
+      "reversibility": "cheap",
+      "why": "User delegated this. Seven levels would otherwise need six numbers typed in; auto-calibration needs spending history that new groups do not have"
+    },
+    {
+      "id": "R4.ghost_remind",
+      "q": "Reminding ghosts",
+      "answer": "WhatsApp share card with monster image, amount and claim link",
+      "status": "answered",
+      "round": 4
+    },
+    {
+      "id": "R4.levels",
+      "q": "Rank levels",
+      "answer": "7 levels: Emperor, King, Prince, Villager, Goblin, Monster, Dragon",
+      "status": "answered",
+      "round": 4
+    },
+    {
+      "id": "R5.threshold_owner",
+      "q": "Who can change thresholds",
+      "answer": "Group creator only; change announced to the group",
+      "status": "answered",
+      "round": 5
+    },
+    {
+      "id": "R5.art",
+      "q": "Who makes character art",
+      "answer": "User generates with AI image tools from concepts Claude proposes; user supplies the asset files",
+      "status": "answered",
+      "round": 5
+    },
+    {
+      "id": "R5.animation",
+      "q": "Animation",
+      "answer": "v0 still images with code-driven bounce; v1 live animation (requires move from Expo Go to development builds)",
+      "status": "answered",
+      "round": 5
+    },
+    {
+      "id": "R5.never",
+      "q": "The one thing that must never happen",
+      "answer": "Never show a wrong balance",
+      "status": "answered",
+      "round": 5
+    },
+    {
+      "id": "A28",
+      "q": "Settle-up suggestions",
+      "answer": "Fewest payments, greedy",
+      "status": "auto-decided",
+      "found_at_emit": true,
+      "reversibility": "cheap"
+    },
+    {
+      "id": "A29",
+      "q": "UPI IDs",
+      "answer": "User adds own in profile",
+      "status": "auto-decided",
+      "found_at_emit": true,
+      "reversibility": "cheap"
+    },
+    {
+      "id": "A30",
+      "q": "Ghost as receiver",
+      "answer": "Group creator confirms or rejects",
+      "status": "auto-decided",
+      "found_at_emit": true,
+      "reversibility": "cheap"
+    },
+    {
+      "id": "A31",
+      "q": "Default thresholds",
+      "answer": "B = Rs 500; tiers at B and 2B",
+      "status": "auto-decided",
+      "found_at_emit": true,
+      "reversibility": "cheap"
+    },
+    {
+      "id": "A32",
+      "q": "Anger",
+      "answer": "calm <7d, annoyed 7-20, furious 21+",
+      "status": "auto-decided",
+      "found_at_emit": true,
+      "reversibility": "cheap"
+    },
+    {
+      "id": "A33",
+      "q": "Partial payments",
+      "answer": "Allowed",
+      "status": "auto-decided",
+      "found_at_emit": true,
+      "reversibility": "cheap"
+    },
+    {
+      "id": "A34",
+      "q": "Currency change",
+      "answer": "Locked after first expense",
+      "status": "auto-decided",
+      "found_at_emit": true,
+      "reversibility": "one-way"
+    },
+    {
+      "id": "A35",
+      "q": "Timers",
+      "answer": "One hourly scheduled job",
+      "status": "auto-decided",
+      "found_at_emit": true,
+      "reversibility": "cheap"
+    },
+    {
+      "id": "A36",
+      "q": "Firebase plan",
+      "answer": "Blaze with Rs 100 budget alert",
+      "status": "auto-decided",
+      "found_at_emit": true,
+      "reversibility": "costly"
+    },
+    {
+      "id": "A37",
+      "q": "Claim links",
+      "answer": "Single-use, 14 days",
+      "status": "auto-decided",
+      "found_at_emit": true,
+      "reversibility": "cheap"
+    },
+    {
+      "id": "A38",
+      "q": "Invite links",
+      "answer": "App Links + web fallback code; Dynamic Links shut down",
+      "status": "auto-decided",
+      "found_at_emit": true,
+      "reversibility": "cheap"
+    },
+    {
+      "id": "A39",
+      "q": "Offline I paid",
+      "answer": "Allowed; timers start on server receipt",
+      "status": "auto-decided",
+      "found_at_emit": true,
+      "reversibility": "cheap"
+    },
+    {
+      "id": "A40",
+      "q": "Creator deletes account",
+      "answer": "Longest-standing member becomes creator",
+      "status": "auto-decided",
+      "found_at_emit": true,
+      "reversibility": "cheap"
+    },
+    {
+      "id": "A41",
+      "q": "Settlement limits",
+      "answer": "Cannot exceed amount owed; 60 s repeat block",
+      "status": "auto-decided",
+      "found_at_emit": true,
+      "reversibility": "cheap"
+    },
+    {
+      "id": "D16",
+      "q": "Under-18 users",
+      "answer": "No age check; risk accepted",
+      "status": "answered",
+      "round": "amend 2026-09-21",
+      "source": "option"
+    },
+    {
+      "id": "A42",
+      "q": "Account deletion",
+      "answer": "In-app and web page; shared records stay as Deleted user",
+      "status": "auto-decided",
+      "reversibility": "costly",
+      "round": "amend 2026-09-21"
+    },
+    {
+      "id": "A43",
+      "q": "Privacy",
+      "answer": "Consent notice, privacy policy, Play data safety form",
+      "status": "auto-decided",
+      "reversibility": "cheap",
+      "round": "amend 2026-09-21"
+    },
+    {
+      "id": "A44",
+      "q": "Backups",
+      "answer": "Daily Firestore backup, 14 weeks",
+      "status": "auto-decided",
+      "reversibility": "cheap",
+      "round": "amend 2026-09-21"
+    },
+    {
+      "id": "A45",
+      "q": "Abuse limits",
+      "answer": "20 invites, 60 expenses per hour; 50 members per group",
+      "status": "auto-decided",
+      "reversibility": "cheap",
+      "round": "amend 2026-09-21"
+    },
+    {
+      "id": "A46",
+      "q": "Ghost removal request",
+      "answer": "Name replaced, amounts kept",
+      "status": "auto-decided",
+      "reversibility": "cheap",
+      "round": "amend 2026-09-21"
+    }
+  ],
+  "contradictions": [
+    {
+      "between": [
+        "R0.settle",
+        "R0.currency"
+      ],
+      "issue": "UPI only moves INR; baht groups cannot use Pay",
+      "resolved_by": "R1.baht"
+    },
+    {
+      "between": [
+        "R1.confirm",
+        "R2.noreply",
+        "R2.status"
+      ],
+      "issue": "Auto-confirm plus a visible ranking rewards falsely tapping 'I paid': the monster shrinks after 3 days with no real payment",
+      "resolved_by": "R3.reject (pending clarification)"
+    },
+    {
+      "between": [
+        "R5.never",
+        "R3.reject"
+      ],
+      "issue": "Day-3 provisional clearing shows a cleared balance that may be reversed up to day 30",
+      "resolved_by": "gate: number vs game kept separate"
+    },
+    {
+      "between": [
+        "R5.never",
+        "offline sync (from prior spec)"
+      ],
+      "issue": "Two offline phones can compute different balances",
+      "resolved_by": "gate: last known balance labelled; A1 dev builds for disk persistence"
+    }
+  ],
+  "open_cascades": [
+    "Who may change a group's thresholds (a debtor could raise them to shrink their own monster)",
+    "Art count: 7 levels x anger-by-age states",
+    "Who makes the art; still or animated",
+    "The one thing that must never happen (P8)",
+    "Offline behaviour for confirmations and timers (M2)",
+    "Rank per group or across all groups",
+    "Visual feel: reference images still pending"
+  ],
+  "coverage": {
+    "product": {
+      "required": 8,
+      "done": 8
+    },
+    "feature": {
+      "required": 10,
+      "done": 10
+    },
+    "mobile-app": {
+      "required": 8,
+      "done": 8
+    },
+    "experience": {
+      "required": 12,
+      "done": 12
+    }
+  },
+  "research": [
+    {
+      "finding": "Splitwise free tier caps daily expenses (3 or 4, sources disagree), shows ads, locks reminders to Pro",
+      "label": "documented",
+      "source": "https://www.areweeven.com/blog/splitwise-free-vs-pro-2026"
+    },
+    {
+      "finding": "Top Splitwise complaint: every group member must install the app",
+      "label": "documented",
+      "source": "https://www.areweeven.com/blog/splitwise-free-vs-pro-2026"
+    },
+    {
+      "finding": "Reminding friends about money is awkward; users want to avoid it",
+      "label": "documented",
+      "source": "https://thinkingcrayfish.substack.com/p/product-study-splitwise"
+    }
+  ],
+  "phase": "emitted",
+  "auto_decided": 27,
+  "schema_version": 1,
+  "amendments": [
+    {
+      "date": "2026-09-21",
+      "reason": "Operations lens added to the skill",
+      "added": [
+        "D16",
+        "A42",
+        "A43",
+        "A44",
+        "A45",
+        "A46"
+      ],
+      "superseded": [],
+      "extended": {
+        "A13": "A42"
+      }
+    }
+  ]
+}
