@@ -69,6 +69,13 @@ That makes it available in every project. For one project only, copy it into
 2. Go to **Customize > Skills**, click **+**, then **Create skill > Upload a skill**.
 3. Upload the zip. Code execution must be enabled.
 
+### Single-file edition
+
+[`editions/single-file/SKILL.md`](editions/single-file/SKILL.md) carries the loop, the rules,
+the defaults and all 169 question stems in one file (about 470 lines, ~15k tokens), for setups that can
+only hold one instruction file. The full edition in `skills/` is sharper: it loads the
+detailed packs only when needed.
+
 ### Other agents (Cursor, Codex, anything that reads instructions)
 
 Point the agent at `skills/ultimate-prompt-engine/SKILL.md` as its instructions, with the
