@@ -1,36 +1,55 @@
 # PromptMachine
 
-**A library of prompts and skills that turn rough ideas into instructions an AI can
-actually execute.**
+**Turn a rough idea into a clear plan that an AI can actually build.**
 
-The first skill in the library is **Ultimate Prompt Engine**: plan mode on steroids.
-Give it an idea of any size, from one line to a page, and it interviews you like a
-senior engineer and a product designer would. It surfaces the decisions you have not
-thought about, asks them as plain questions with the stakes spelled out, never decides
-silently, and ends with a `spec/` folder a coding agent can build from without inventing
-anything.
+You have an idea: "an app for splitting bills with friends" or "a website for our
+astronomy club". If you hand that one line straight to an AI coding tool, it has to
+guess hundreds of small things, and it usually guesses the boring, common answer.
+
+PromptMachine fixes that. Its main tool, the **Ultimate Prompt Engine**, is a *skill*
+(a set of instructions you add to Claude or another AI assistant). Once it's installed,
+the AI stops guessing. It **interviews you** the way a good designer and a senior
+engineer would, asks about the things you haven't thought of yet, and then writes a
+complete plan, called a **spec**, that a coding AI can follow step by step.
+
+You don't need to be technical to use it. If you can answer "a, b or c", you can use it.
 
 ---
 
-## What an interview looks like
+## How it works, in short
 
-From a real run on a bill-splitting app idea:
+1. **You describe your idea** in a sentence or a page. Either works.
+2. **It repeats the idea back** in its own words, so you can fix anything it got wrong.
+3. **It offers a quick brainstorm** (optional) with at least eight different directions
+   your idea could go, some of them unusual.
+4. **It asks you questions**, a few at a time, most important first. It starts with how
+   the product should *feel* and gets to features and technology later.
+5. **It suggests a few "delight" ideas**: small touches that would only fit your
+   product. You keep the ones you like.
+6. **You say "enough" whenever you want.** It writes the plan from what you've told it
+   and lists everything it had to assume, so nothing is decided behind your back.
+7. **It writes a `spec/` folder** and checks it for mistakes before handing it over.
 
-> **Amit installs the app later and wants to claim the ghost "Amit" in your group. How does
-> the app know it is really him?** If anyone can claim any ghost, someone could claim one to
-> wipe a debt or read someone's history.
+## What the questions look like
+
+The questions are in plain words, about real people and real moments. Here is one from a
+bill-splitting app:
+
+> **Amit installs the app later and wants to claim the "Amit" placeholder in your group.
+> How does the app know it's really him?** If anyone can claim anyone, someone could
+> pretend to be him and wipe out a debt.
 >
-> a) Personal claim link *(recommended)*: someone in the group sends Amit a link made only
->    for that ghost, on WhatsApp
-> b) Phone number match
-> c) Pick from a list: easiest, but anyone can pick anyone
+> a) A personal link sent to Amit on WhatsApp *(recommended)*
+> b) Match his phone number
+> c) Pick his name from a list (easiest, but anyone can pick anyone)
 > d) Something else
 > e) Not sure, suggest one
 
-And a question about feel, which comes before any question about colours or features:
+And here is a question about feel, which comes before any question about colours or
+buttons:
 
-> **Someone spends one minute with this and then closes it. What do you want them to feel
-> in that minute?** This decides almost everything about how it looks and moves.
+> **Someone uses this for one minute and closes it. What should they feel in that
+> minute?**
 >
 > a) Calm and in control, like a tidy desk
 > b) A small thrill, like opening a parcel
@@ -40,180 +59,164 @@ And a question about feel, which comes before any question about colours or feat
 > f) Something else
 > g) Not sure, suggest one
 
-Every question works this way:
+A few things are true of every question:
 
-- **Plain words**, with named people and concrete moments instead of jargon.
-- **The stakes are in the question**, so you learn what the choice decides.
-- **Options are anchored** to products you have used ("glassmorphism, like Apple's
-  Control Centre").
-- **Always "Something else" and "Not sure, suggest one".** Anything suggested or assumed
-  for you is logged with its reason and how hard it is to reverse.
-- **Feel before mechanics.** Questions about look and feel come first, offer several
-  different directions, and carry no recommendation, so nothing narrows early.
-- **"Show me instead"** for anything about looks: send screenshots and it extracts the
-  palette and style.
+- **It explains why the question matters**, so you know what you're deciding.
+- **You can always say "Something else" or "Not sure, suggest one".** When it picks for
+  you, it writes down what it picked and why.
+- **You can show instead of tell.** For anything visual, send screenshots or links and
+  it works out the colours and style from them.
+- **It catches contradictions.** If a new answer clashes with an earlier one, it tells
+  you.
+- **It checks facts online**, such as prices or app store rules, instead of relying on
+  old memory.
 
-## What makes it different
+## Why not just ask the AI directly?
 
-| Most spec prompts | Ultimate Prompt Engine |
+| Asking an AI directly | Using the Ultimate Prompt Engine |
 |---|---|
-| Ask generic questions ("What's your tech stack?") | Bans 9 generic questions by name and asks what you have not thought of |
-| Decide quietly when you don't answer | Logs every assumption with reasoning, evidence and reversibility |
-| Accept contradictions | Checks every answer against every earlier one and names clashes out loud |
-| Work from the model's memory | Searches online for the facts that change (pricing, platform rules, shutdowns) and labels each as documented, widely reported or judgment |
-| Stop at a summary | Writes a full spec, then verifies it: every requirement traced to a decision, every formula tested with real numbers |
-| Leave the look to the builder, who picks the most common one | Asks what it should feel like first, writes down the lettering, colours and movement that follow, and checks the spec against the marks of a default AI-built page |
-| Offer two or three safe options | Offers an open brainstorm first if you want one, and later proposes 2 to 4 delight features made for your product, each with its cost |
-| Run for a fixed number of questions | Asks the most important questions first; say "enough" at any point and it builds from what it has, listing what it assumed |
+| It asks generic questions, like "What's your tech stack?" | It asks about the things you haven't thought of |
+| It quietly decides things for you | It writes down every guess, with the reason |
+| It doesn't notice when your answers contradict each other | It checks each answer against the earlier ones |
+| It ends with a short summary | It writes a full plan and tests it, including any maths |
+| Everything ends up looking like every other AI-made app | It asks what your product should feel like first, then plans the look around that |
 
-## Install
+---
 
-### Claude Code
+## Install it
 
-Clone or download this repository, then from its folder:
+### Option 1: Claude Code (the command-line tool)
 
-```bash
-mkdir -p ~/.claude/skills
-cp -r skills/ultimate-prompt-engine ~/.claude/skills/
-```
+1. Download this project. Either click the green **Code** button on this page and
+   choose **Download ZIP** (then unzip it), or run:
 
-That makes it available in every project. For one project only, copy it into
-`.claude/skills/` inside that project instead. Invoke it with
-`/ultimate-prompt-engine`, or just describe something you want to build.
+   ```bash
+   git clone https://github.com/ByteForge1729/PromptMachine.git
+   cd PromptMachine
+   ```
 
-### Claude app (claude.ai, desktop, Cowork)
+2. Copy the skill into your Claude skills folder:
 
-1. Zip the `skills/ultimate-prompt-engine` folder (or download the zip from the latest
-   release).
-2. Go to **Customize > Skills**, click **+**, then **Create skill > Upload a skill**.
-3. Upload the zip. Code execution must be enabled.
+   ```bash
+   mkdir -p ~/.claude/skills
+   cp -r skills/ultimate-prompt-engine ~/.claude/skills/
+   ```
 
-### Single-file edition
+That's it. The skill now works in every project. Type `/ultimate-prompt-engine`, or
+just describe something you want to build.
 
-[`editions/single-file/SKILL.md`](editions/single-file/SKILL.md) carries the loop, the rules,
-the defaults and all 202 question stems in one file (about 560 lines), for setups that can
-only hold one instruction file. The full edition in `skills/` is sharper: it loads the
-detailed packs only when needed.
+### Option 2: The Claude app (claude.ai or the desktop app)
 
-### Other agents (Cursor, Codex, anything that reads instructions)
+1. Download this project with **Code → Download ZIP** and unzip it.
+2. Open the unzipped folder, go into `skills`, and zip just the
+   `ultimate-prompt-engine` folder.
+3. In Claude, go to **Customize → Skills**, click **+**, then
+   **Create skill → Upload a skill**.
+4. Upload the zip you made. Code execution needs to be turned on in your settings.
 
-Point the agent at `skills/ultimate-prompt-engine/SKILL.md` as its instructions, with the
-rest of the folder available to read. Without a question tool, the skill switches to a
-numbered question block you answer in one message (`1a 2c 3d`).
+### Option 3: Other AI tools (Cursor, Codex, ChatGPT and others)
 
-## Use
+Give the AI the file `skills/ultimate-prompt-engine/SKILL.md` as its instructions, and
+let it read the rest of that folder.
+
+If your tool only takes **one** instruction file, use
+[`editions/single-file/SKILL.md`](editions/single-file/SKILL.md) instead. It packs
+everything into one file. The full version is a bit sharper, because it loads detailed
+notes only when it needs them.
+
+If the tool can't show clickable options, the questions come as a numbered list, and you
+reply in one message, like `1a 2c 3d`.
+
+## Try it
+
+Start with something like:
 
 ```
 /ultimate-prompt-engine I want to build a web app where our astronomy club logs what
 we observed each night, and it tells members when the sky will be worth going out for.
 ```
 
-It will:
+Then just answer the questions. Say **"enough"** whenever you want it to stop asking and
+write the plan.
 
-1. **Read back** your idea in its own words and check the risky assumptions with scenario
-   questions.
-2. **Offer a brainstorm**, once. Say yes and it throws out at least eight different
-   directions, odd ones included, with nothing decided, then sums up what pulled you.
-   Say no and it goes straight to the questions.
-3. **Classify** the project: website, web app, mobile app, CLI tool, API service, ML
-   system, browser extension, game, simulation, or anything else.
-4. **Research** comparable products, how projects like this fail, and current facts about
-   your stack.
-5. **Interview** you, at most 4 questions a round, the most important first and feel
-   before mechanics, reviewing every answer for clashes, new questions it opened, and
-   conflicts with the tools you named.
-6. **Propose delight features**, once: 2 to 4 small ideas that could only belong to your
-   product, each with a reason and a rough cost. You accept, edit or reject each.
-7. **Stop when you say so.** There are no modes and no fixed length. Say "enough" and it
-   builds the spec from what you answered and lists everything it had to assume, the
-   hard-to-undo ones first.
-8. **Write `spec/`** and check it before handing it over.
+Already have a plan from an earlier run? Run it again in the same project. It updates the
+existing plan and only asks about what changed.
 
-Run it again on a project that already has `spec/state.json` and it updates the spec
-instead of starting over, asking only about what changed.
+## What you get at the end
 
-## What you get
+A folder called `spec/` with everything a coding AI needs:
 
-```
-spec/
-  SUMMARY.md            one screen: what, for whom, v0, must-never, what was assumed, decisions to review
-  00-brief.md           your idea verbatim, the brainstorm summary, the corrected read-back, principles
-  01-scope.md           v0 / v1 / later, delight features taken and declined, non-goals, success number
-  02-users-and-flows.md named people, step by step, with failure branches
-  03-data-model.md      entities, invariants, exact formulas
-  04-features/          one file per feature, each with acceptance checks
-  05-architecture.md    stack, what runs where, integrations, cost
-  06-experience.md      point of view, lettering and colour, movement, weak devices, words, assets
-  07-decisions.md       every decision: yours, assumed, found while writing
-  08-risks.md           including warnings you chose to accept
-  09-open-questions.md  deferred and unverified items
-  10-build-plan.md      milestones in build order
-  AGENTS.md             rules the coding agent must follow
-  state.json            for resuming and updating
-```
+| File | What's in it |
+|---|---|
+| `SUMMARY.md` | The whole plan on one screen. **Start here.** |
+| `00-brief.md` | Your original idea, word for word, plus the corrected version |
+| `01-scope.md` | What goes in the first version, what comes later, what's left out |
+| `02-users-and-flows.md` | Who uses it and what they do, step by step, including when things go wrong |
+| `03-data-model.md` | What information the app stores, and any exact formulas |
+| `04-features/` | One file per feature, each with a checklist for "is it done?" |
+| `05-architecture.md` | What technology to use and what it costs |
+| `06-experience.md` | How it should look, move and feel, and the words it uses |
+| `07-decisions.md` | Every decision: the ones you made and the ones it assumed |
+| `08-risks.md` | What could go wrong, including warnings you chose to accept |
+| `09-open-questions.md` | Things still to decide or check |
+| `10-build-plan.md` | The order to build things in |
+| `AGENTS.md` | Rules the coding AI must follow |
+| `state.json` | Saved progress, so it can pick up where it left off |
+
+When it's done, hand the `spec/` folder to any coding AI and ask it to build from it.
 
 ## Examples
 
-Three complete specs produced during testing of version 1.0. They predate the
-brainstorm, the feel-first questions and the delight step, so their `06-experience.md`
-files are thinner than what 2.0 writes.
+Here are three real plans the tool produced. They were made with version 1.0, so the
+look-and-feel sections are thinner than what the current version writes.
 
-| Example | Brief | Run | What it shows |
-|---|---|---|---|
-| [SplitEasy](examples/spliteasy/spec/SUMMARY.md) | A gamified bill-splitting app | Five rounds, question tool | 14 gaps found while writing; balance maths tested over 10,000 random cases; then [updated](examples/spliteasy/amendment-2026-09-21.diff) with 5 new decisions |
-| [Skylog](examples/skylog/spec/SUMMARY.md) | One line: an astronomy club's logbook and sky forecast | Three rounds | Research turning a thin brief into specific questions; two bugs caught by the self-check |
-| [PYQ Coach](examples/pyq-coach/spec/SUMMARY.md) | A detailed brief: a past-paper bank with AI practice questions | Five rounds, plain chat | Traps found inside the brief; a formula bug caught by testing its edges |
+| Example | The idea | What's interesting |
+|---|---|---|
+| [SplitEasy](examples/spliteasy/spec/SUMMARY.md) | A fun bill-splitting app | Found 14 gaps while writing; the money maths was tested on 10,000 random cases |
+| [Skylog](examples/skylog/spec/SUMMARY.md) | A one-line idea: an astronomy club logbook | Turned a very short idea into a detailed plan |
+| [PYQ Coach](examples/pyq-coach/spec/SUMMARY.md) | A long brief: a past exam paper bank with AI practice | Found hidden problems inside the brief itself |
 
-## Repository layout
+---
+
+## What's in this project
 
 ```
-skills/ultimate-prompt-engine/   the skill (install this folder)
-  SKILL.md                       the loop and rules, always loaded
-  references/                    loaded only when needed
-    archetypes/                  10 project types
-    dimensions/                  5 lenses: product, feature, experience, systems, operations
-    brainstorm.md                the optional open session before the questions
-    delight.md                   how it proposes features made for your product
-    question-craft.md            how to write and ask questions
-    research.md                  how to research and label facts
-    defaults.md                  dated "when X, use Y, because Z" tables
-    anchors.md                   jargon translated into products people use
-    antipatterns.md              banned questions, the generic look, the questions nobody asks
-  templates/                     spec templates and the state.json schema
-examples/                        three specs produced by the skill
-docs/                            how it works, what testing changed, design research notes
+skills/ultimate-prompt-engine/   the skill itself (this is the folder you install)
+  SKILL.md                       the main instructions
+  references/                    extra notes it reads only when needed
+                                 (project types, question guides, research rules, ...)
+  templates/                     the layout for each spec file
+editions/single-file/            the whole skill in one file, for simpler tools
+examples/                        three finished plans made by the skill
+docs/                            how it works, test notes, and research sources
 ```
 
-## Status and honest limits
+## Honest limits
 
-- Version 2.0. Version 1.0 was tested in three dry runs plus one update run, across
-  mobile, web and ML projects, with and without the question tool.
-  [What each run changed](docs/dry-runs.md).
-- **Version 2.0 has only been run on paper.** The brainstorm, the feel-first questions,
-  the delight step and the website and simulation packs were traced through three
-  scenarios with the answers invented by the author, not by a real user. A real run is
-  the next test.
-- **Not yet tested cold:** in every run, the model that wrote the skill also ran it. A fresh
-  session loading it from scratch is the next real test. Reports welcome.
-- The design guidance (what makes work look generic, movement, speed) comes from the
-  sources in [docs/research-notes.md](docs/research-notes.md), which also lists what
-  could not be verified.
-- `defaults.md` goes stale. Every entry carries a review date; the skill is told to verify
-  anything older than a year before relying on it.
-- Anything touching law is labelled "not legal advice".
+- **This is version 2.0.** Version 1.0 was tested on several real projects (mobile,
+  web, and machine learning). The new parts in 2.0 (the brainstorm, the feel-first
+  questions and the delight ideas) have only been walked through on paper so far. Real
+  runs are the next step.
+- **It hasn't been tested by a stranger yet.** So far, every test was run by the same AI
+  that helped write the skill. If you try it, please share how it went.
+- **Some facts go out of date.** Prices and recommendations in the notes carry a date,
+  and the skill is told to double-check anything more than a year old.
+- **It isn't legal advice.** Anything about law is clearly marked that way.
 
-## Contributing
+More detail: [how it works](docs/how-it-works.md) · [what testing changed](docs/dry-runs.md) ·
+[research sources](docs/research-notes.md) · [changelog](CHANGELOG.md)
 
-New archetypes, sharper questions, and corrections to stale defaults are all welcome. See
-[CONTRIBUTING.md](CONTRIBUTING.md).
+## Want to help?
+
+Ideas for new project types, better questions, and fixes for out-of-date facts are all
+welcome. See [CONTRIBUTING.md](CONTRIBUTING.md).
 
 ## Credits
 
 Inspired by [hboon's spec skill](https://hboon.com/build-a-spec-skill-for-your-coding-agent/)
-and [GitHub Spec Kit](https://github.com/github/spec-kit) (the `[NEEDS CLARIFICATION]`
-marker and the split between what and how), with lenses borrowed from the roles in the
+and [GitHub Spec Kit](https://github.com/github/spec-kit), with ideas borrowed from the
 BMAD method.
 
 ## License
 
-[MIT](LICENSE)
+[MIT](LICENSE). Free to use, change and share.
