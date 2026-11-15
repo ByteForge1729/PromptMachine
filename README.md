@@ -32,32 +32,18 @@ You don't need to be technical to use it. If you can answer "a, b or c", you can
 
 ## What the questions look like
 
-The questions are in plain words, about real people and real moments. Here is one from a
-bill-splitting app:
+The questions are in plain words, and each one says what's at stake. Here is the kind of
+question it asked in a test run on a website for a college astronomy club:
 
-> **Amit installs the app later and wants to claim the "Amit" placeholder in your group.
-> How does the app know it's really him?** If anyone can claim anyone, someone could
-> pretend to be him and wipe out a debt.
+> **The weather forecasts disagree about Saturday night. What should the app show?**
+> If it calls the night good and the sky clouds over, the club travels to a dark site
+> for nothing.
 >
-> a) A personal link sent to Amit on WhatsApp *(recommended)*
-> b) Match his phone number
-> c) Pick his name from a list (easiest, but anyone can pick anyone)
+> a) Rank the nights and show how much the forecasts agree *(recommended)*
+> b) Show the raw forecast and let members judge
+> c) Name the single best night
 > d) Something else
 > e) Not sure, suggest one
-
-And here is a question about feel, which comes before any question about colours or
-buttons:
-
-> **Someone uses this for one minute and closes it. What should they feel in that
-> minute?**
->
-> a) Calm and in control, like a tidy desk
-> b) A small thrill, like opening a parcel
-> c) Impressed, like walking into a gallery
-> d) At home, like a friend's kitchen
-> e) Show me instead: send pictures or links
-> f) Something else
-> g) Not sure, suggest one
 
 A few things are true of every question:
 
