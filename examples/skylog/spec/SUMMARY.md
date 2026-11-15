@@ -1,4 +1,7 @@
-# Skylog: spec (Quick mode)
+# Skylog: spec
+
+*Written by version 1.0 in its short format: flows, experience and risks are folded
+into this file. Version 2.0 always writes every file.*
 
 **What:** A members-only website for a college astronomy club: a logbook that works with
 no signal, plus a forecast that ranks upcoming campus nights and dark-site weekends

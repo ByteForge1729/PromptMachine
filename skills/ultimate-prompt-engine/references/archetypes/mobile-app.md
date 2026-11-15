@@ -13,25 +13,25 @@ between you and your users. Every one of those is a decision the user has not ma
 
 ---
 
-### M1: platform reality `[required]`
+### M1: platform reality `[must-ask]`
 **Ask:** Which phone do the people you described actually carry? If your first fifty
 users are one platform, shipping there properly beats shipping two badly, and
 cross-platform costs real polish on both.
-**Options:** Android only / iOS only / both from day one / decide for me
+**Options:** Android only / iOS only / both from day one / not sure, suggest one
 **Opens:** framework choice, distribution, device testing
 **Note:** in India, student and campus products skew heavily Android. Say this rather
 than assuming iOS parity matters.
 
-### M2: the tunnel test `[required]`
+### M2: the tunnel test `[must-ask]`
 **Ask:** Someone opens this on a metro with no signal. What should work? Viewing what
 they already have is usually essential; creating something new that syncs later is where
 the work lives, and it is roughly a third more build either way.
 **Options:** read what is cached (recommended for v0) / read and create, queued for sync /
-nothing works offline / decide for me
+nothing works offline / not sure, suggest one
 **Opens:** local database, sync strategy, conflict handling, source of truth
 **Cascade:** anything beyond "read cached" makes every Systems-lens sync question required
 
-### M3: the money source of truth `[required, when money or balances exist]`
+### M3: the money source of truth `[must-ask, when money or balances exist]`
 **Ask:** Can the phone calculate a balance, or must the server always be the one that
 says what is owed? A client that can compute money is a client that can be confidently
 wrong about money in front of two people who disagree.
@@ -40,7 +40,7 @@ phone is authoritative
 **Skip if:** nothing numeric or financial
 **Opens:** sync strategy, reconciliation, offline write rules
 
-### M4: the permission prompts `[required]`
+### M4: the permission prompts `[must-ask]`
 **Ask:** Which system permissions does this need, and when do you ask? Contacts, camera,
 notifications, location. Asking on first launch gets you denied; asking at the moment the
 feature is used roughly doubles acceptance. A denied permission is permanent for most
@@ -49,14 +49,14 @@ users, so the timing is a real design decision.
 explanation / avoid the permission entirely with a manual alternative
 **Opens:** onboarding flow, denied-permission fallbacks, settings screen
 
-### M5: the denied path `[required, when any permission is requested]`
+### M5: the denied path `[must-ask, when any permission is requested]`
 **Ask:** They tap "Don't Allow" on contacts. Does the feature still work? Every permission
 needs a manual fallback, or you have shipped a dead end for a meaningful share of users.
 **Options:** manual entry fallback (recommended) / feature disabled with an explanation /
 block the user until granted (never choose this)
 **Opens:** alternate flows, empty states, copy
 
-### M6: getting the second person in `[required, when multi-user]`
+### M6: getting the second person in `[must-ask, when multi-user]`
 **Ask:** How does the second person join? A share link, a code they type, a contact
 invite, a QR code across a table? This is the single highest-drop-off step in any
 multi-user phone product, and it deserves more thought than the features around it.
@@ -66,7 +66,7 @@ contact-based invite
 **Opens:** deep links, onboarding for invited users, what an invited user sees before
 signing up
 
-### M7: the invited user's first screen `[required, when multi-user]`
+### M7: the invited user's first screen `[must-ask, when multi-user]`
 **Ask:** Someone taps the invite link and does not have the app. What happens? Store
 page, then a blank app with no memory of the invite, is the default outcome and it loses
 most of them. Deferred deep linking preserves the context through the install.
@@ -75,14 +75,14 @@ join code / web preview they can see without installing
 **Skip if:** single-user
 **Opens:** deep link infrastructure, web fallback, onboarding branches
 
-### M8: background behaviour `[optional]`
+### M8: background behaviour `[should-ask]`
 **Ask:** Does anything need to happen while the app is closed? Both platforms are
 aggressive about killing background work, and anything you rely on happening reliably
 in the background needs a server doing it instead.
 **Options:** nothing (recommended) / periodic sync / server-driven push that wakes the app
 **Opens:** server-side scheduling, push infrastructure, battery considerations
 
-### M9: interruption `[optional]`
+### M9: interruption `[should-ask]`
 **Ask:** Someone is halfway through entering something and a call comes in. When they come
 back, is their input still there? Phones kill apps without warning, and losing a
 half-filled form is a phone-specific failure that web products rarely face.
@@ -90,14 +90,14 @@ half-filled form is a phone-specific failure that web products rarely face.
 finished
 **Opens:** local draft storage, state restoration
 
-### M10: one-handed reach `[optional]`
+### M10: one-handed reach `[nice-to-have]`
 **Ask:** Will people use this one-handed, walking, or at a table with both hands? The
 primary action belongs within thumb reach at the bottom if it is the former, and phone
 screens have grown past what a thumb covers.
 **Options:** one-handed, bottom-anchored actions (recommended) / two-handed, layout is free
 **Opens:** navigation pattern, 06-experience.md
 
-### M11: distribution `[required]`
+### M11: distribution `[must-ask]`
 **Ask:** How do the first fifty people install this? TestFlight and the Play internal
 track get you to real devices in days. A full store listing adds review time, screenshots,
 a privacy declaration and a support contact, which is real work nobody budgets for.
@@ -105,7 +105,7 @@ a privacy declaration and a support contact, which is real work nobody budgets f
 sideloaded APK for a small group
 **Opens:** 10-build-plan.md, store assets, privacy policy requirement
 
-### M12: the update problem `[optional]`
+### M12: the update problem `[should-ask]`
 **Ask:** When you ship a change, old versions keep running on people's phones for weeks
 because they do not update. Does the server need to keep supporting them, and is there a
 version you can force off?
@@ -113,7 +113,7 @@ version you can force off?
 changes / ignore, small user base
 **Opens:** API versioning, forced-update mechanism, migration strategy
 
-### M13: device storage `[optional]`
+### M13: device storage `[nice-to-have]`
 **Ask:** Photos, receipts, attachments? Those live on the device and in storage you pay
 for, and a phone that runs out of space deletes your cached data first without telling
 anyone.
@@ -121,7 +121,7 @@ anyone.
 arbitrary files
 **Opens:** storage cost, upload handling, compression, offline availability of media
 
-### M14: app store gatekeeping `[optional]`
+### M14: app store gatekeeping `[should-ask]`
 **Ask:** Does this sell anything, show user-generated content, or touch payments? Each one
 brings a store rule: digital goods must use the store's payment system and pay the cut,
 user content requires a reporting mechanism, and rejection costs a review cycle.

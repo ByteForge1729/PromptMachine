@@ -19,18 +19,20 @@ precise enough that a coding agent can build it without inventing anything.
 3. **Never ask what is already answered.** Re-read the brief and `state.json` first.
 4. **Never ask a question with no stakes.** If both answers build the same thing,
    decide and log it.
-5. **Respect the round budget.** Fatigue kills more specs than gaps do.
+5. **The user sets the length.** "Enough" at any point ends the questions.
 
 ## The loop
 
 ```
 Phase 0  Read-back       your understanding, checked through scenario questions
-Phase 1  Classify        archetype, depth mode, active lenses
+Phase 0b Brainstorm      only if they say yes to the one-time offer
+Phase 1  Classify        archetype, active lenses
 Phase 1b Research        online scan of the domain, merged with your judgment
-Phase 2  Round           <= 4 questions, at least two lenses
+Phase 2  Round           <= 4 questions, must-ask first, feel before mechanics
 Phase 3  Review          clashes, cascades, closures, stack check, coverage
-         (repeat 2-3 until the gate passes or the budget runs out)
-Phase 4  Gate            readiness meter, explicit go-ahead
+Phase 3b Delight         once: 2 to 4 ideas made for this product, each with a cost
+         (repeat 2-3 until nothing is left to ask or the user says "enough")
+Phase 4  Check-in        the meter, what is left, explicit go-ahead
 Phase 5  Emit            write spec/, which is itself a final gap check
 Phase 6  Amend           on re-run: diff and patch, never regenerate
 ```
@@ -39,8 +41,11 @@ Phase 6  Amend           on re-run: diff and patch, never regenerate
 
 Write: **what I think you are building** (one paragraph, your words), **components I
 can see**, **what I am assuming**, **what this is probably not**. Then check it with
-scenario questions using named people, never a list of assumptions to tick. Ask the
-depth mode in the same batch. Do not start Phase 2 until they answer.
+scenario questions using named people, never a list of assumptions to tick. In the same
+batch, offer the brainstorm **once**: *"Before I ask specific questions, do you want a
+few minutes of throwing ideas around first, with nothing decided?"* On yes (Phase 0b),
+load `references/brainstorm.md`: go wide, force no choice, end with a short synthesis,
+redo the read-back from it. On no, never offer it again.
 
 ### Phase 1: Classify
 
@@ -48,6 +53,7 @@ Load exactly one archetype from `references/archetypes/`:
 
 | Signal | Archetype |
 |---|---|
+| portfolio, landing page, studio or brand site, "people come to look" | `website.md` |
 | browser, dashboard, SaaS, "website that does" | `web-app.md` |
 | phone, iOS, Android, app store, offline | `mobile-app.md` |
 | terminal, command, script, developer tool | `cli-tool.md` |
@@ -55,10 +61,8 @@ Load exactly one archetype from `references/archetypes/`:
 | model, training, dataset, inference, agent | `ml-system.md` |
 | extension, add-on, content script | `browser-extension.md` |
 | levels, players, physics, score | `game.md` |
+| simulation, visualisation, "play with the numbers", a maths or physics model | `simulation.md` |
 | anything else, or the file above does not exist yet | `generic.md` |
-
-**Depth mode:** Quick (3 rounds, ~12 questions, a prototype), Standard (5 rounds, ~20,
-default), Deep (8 rounds, ~32, something people will depend on or pay for).
 
 **Lenses**, from `references/dimensions/`; load only the active ones:
 
@@ -66,11 +70,12 @@ default), Deep (8 rounds, ~32, something people will depend on or pay for).
 |---|---|---|
 | Product | who, why, success, non-goals, scope tiers, must-never rule | never |
 | Feature | flows, edge cases, actors, acceptance criteria | never |
-| Experience | feel, visuals, assets, motion, sound, words | nobody looks at it |
+| Experience | feel, point of view, visuals, motion, sound, assets, words | nobody looks at it |
 | Systems | exactness, source of truth, services, clocks, stack limits | trivially stateless |
 | Operations | accounts, privacy, law, cost, monitoring, launch | never shipped to anyone |
 
-Experience is **required** when the brief names a look, brand, character or game layer.
+Experience is **always active** for websites, games and simulations, and whenever the
+brief names a look, brand, character or game layer.
 
 ### Phase 1b: Research
 
@@ -78,14 +83,16 @@ Before round 1, run 3 to 6 searches: comparable products and what their users co
 about, how projects like this fail, and current facts about the user's stack (limits,
 pricing, shutdowns). Verify again mid-interview whenever an answer rests on something
 that changes. Label every fact **documented**, **widely reported** or **my judgment**,
-and cite sources in `07-decisions.md`. Research supplies facts; you supply the
-synthesis. Details: `references/research.md`.
+and cite sources in `07-decisions.md`. Details: `references/research.md`.
 
 ### Phase 2: Round
 
-At most **4 questions**, from at least two lenses. **Rotate lenses:** every active lens
-gets a question within the first two rounds; if one has had none by round 2, it gets a
-slot in round 3 even over urgent follow-ups (Experience is the lens most often starved).
+At most **4 questions**, from at least two lenses. **Order by tag:** `[must-ask]`, then
+`[should-ask]`, then `[nice-to-have]` only if the user wants to go on. Tags decide only
+what comes first; they are not levels and nothing is locked behind them. Inside a tag,
+ask **feel and why before how**: what it should be like comes before any question that
+narrows it. **Rotate lenses:** every active lens gets a question within the first two
+rounds, and when Experience is active the feeling (E19) is asked in round 1.
 
 ### Phase 3: Review
 
@@ -97,36 +104,35 @@ After every batch of answers, do all five:
 2. **Cascade check.** Add the questions each answer opened (use the `Opens` fields and
    cascade tables in the packs).
 3. **Closure check.** Drop questions an answer made irrelevant.
-4. **Stack check.** Test each decision against the limits of tools the user already
-   named. Search when unsure.
+4. **Stack check.** Test each decision against the limits of tools the user named.
 5. **Coverage.** Update `state.json` (schema: `templates/state.schema.json`) and the meter.
 
 Report in three short blocks at most (clash, opened, closed), then the meter, then the
 next round. Never narrate your reasoning.
 
-### Phase 4: Gate
+**Phase 3b, Delight.** Once, as soon as the main action (F1, WS1, GA3 or SM1) and the
+feel (E19) are answered: load `references/delight.md` and propose 2 to 4 delight features that could
+only belong to this product, each with a one-line reason and a rough cost. The user
+accepts, edits or rejects each. Never suggest features inside ordinary rounds.
 
-No spec while any **required** question is unanswered. Each must be `answered`,
-`auto-decided` or `deferred`. Show the meter:
+### Phase 4: Check-in
+
+After each review, show the meter:
 
 ```
-Product     ######--  6/8   2 open
-Systems     ####----  4/8   1 clash
+Product     ######--  6 of 8 must-ask   2 should-ask left   1 clash
 ```
 
-When the budget runs out, offer: auto-decide the rest, one more focused round, or switch
-to Deep. When auto-deciding in bulk, **the must-never rule (P8) beats every pack
-default**, and decisions are **sorted by stakes**: one-way and costly first, with
-evidence, cheap ones below.
+There is no round limit and no gate. When every must-ask and should-ask is answered,
+say so and offer the spec. On **"enough"**, stop asking at once: decide every unasked
+must-ask and should-ask yourself, log each as `ASSUMED`, and list them in `SUMMARY.md`
+under "Assumed because we stopped", **sorted by stakes** (one-way and costly first,
+with evidence). **The must-never rule (P8) beats every pack default.**
 
 ### Phase 5: Emit
 
-Write `spec/` using `templates/spec-templates.md`: `SUMMARY.md`, `00-brief`,
-`01-scope` (with non-goals), `02-users-and-flows`, `03-data-model` (with invariants),
-`04-features/` (acceptance criteria each), `05-architecture`, `06-experience`,
-`07-decisions`, `08-risks`, `09-open-questions`, `10-build-plan`, `AGENTS.md`,
-`state.json`. Quick mode folds `02`, `06`, `08` into `SUMMARY.md`; never fold `01` or
-`07`.
+Write every file of `spec/` from `templates/spec-templates.md`, `SUMMARY.md` to
+`state.json`, however short the interview was.
 
 Markers: `[NEEDS CLARIFICATION]` (none may remain), `[ASSUMED]`, `[DEFERRED]`,
 `[UNVERIFIED]`.
@@ -134,8 +140,9 @@ Markers: `[NEEDS CLARIFICATION]` (none may remain), `[ASSUMED]`, `[DEFERRED]`,
 **Writing is a check.** Gaps found while writing are decided if cheap (logged "found at
 emit") or asked if costly or one-way. List them in `SUMMARY.md`. Before handing over,
 verify: no open markers, every decision reference resolves, every invariant has an
-acceptance check, the spec's own interface text obeys its own rules, and every formula
-is tested with real numbers, including the edges (zero, maximum, the odd case).
+acceptance check, the spec's own interface text obeys its own rules, every formula
+is tested with real numbers, including the edges (zero, maximum, the odd case), and
+`06-experience.md` passes the generic-look check in `references/antipatterns.md`.
 
 ### Phase 6: Amend
 
@@ -147,31 +154,33 @@ files, append superseded decisions with dates to `07-decisions.md`, report the d
 Every question passes all of these. Explanations and examples:
 `references/question-craft.md`. Banned questions: `references/antipatterns.md`.
 
-- **Plain language:** a first-year student understands it on one read; named people,
-  concrete moments. If asked to rephrase, rephrase the whole batch.
-- **Stakes inside:** the user learns what the choice decides and what changing it costs.
-- **Anchored options:** jargon is tied to a product they use (`references/anchors.md`).
-- **Recommended first**, labelled `(Recommended)`.
-- **"Decide for me"** is always an option; when picked, decide, log, move on.
-- **"Show me instead"** for taste questions: accept screenshots or links and extract
-  from them.
+- **Plain language, one idea per question:** someone with no software background
+  understands it on one read; named people, concrete moments. Technical detail goes in
+  the spec. If asked to rephrase, rephrase the whole batch.
+- **Stakes inside:** the user learns what the choice decides and what it costs.
+- **Options they can picture:** a description or a product they use (`references/anchors.md`).
+- **Never narrow early:** taste questions (feel, look, motion, sound, voice) carry no
+  recommendation and at least four different directions. Other questions put the
+  recommendation first, labelled `(Recommended)`.
+- **Always "Something else" and "Not sure, suggest one".** On the second: suggest one
+  with the reason, log it as `ASSUMED` unless they object, move on.
+- **"Show me instead"** on taste questions: take screenshots or links, extract from them.
 - **Freeform answers outrank your options:** restate, then run the Phase 3 checks.
 - **Non-obvious first:** ask what they have not thought of, never what they have.
-- **At most one feature suggestion per round**, with its cost.
 
-**Mechanics:** with a question tool (Claude Code, Cowork), use it: 4 questions × 4
-options, so at most 3 real options plus "Decide for me". Without one, use the numbered
-markdown block in `question-craft.md`. Never more than 4 questions on screen.
+**Mechanics:** with a question tool (Claude Code, Cowork), use it for non-taste
+questions: 4 questions × 4 options, so 3 real options plus "Not sure, suggest one" (the
+tool adds "Something else"). Taste questions, and any harness without a tool, use the
+numbered block in `question-craft.md`. Never more than 4 questions on screen.
 
 ## Escape hatches
 
 Honour these immediately:
 
-- *"decide the rest for me"*: auto-decide everything open, log it, go to the gate.
+- *"enough"*, *"decide the rest"*, *"just build it"*: assume the rest (Phase 4), emit.
 - *"skip this lens"*: mark it `DEFERRED`, move on.
 - *"go deeper on X"*: spend the next round on X.
-- *"I don't know"*: treat as "Decide for me" and say what you picked.
-- *"just build it"*: emit what exists, gaps clearly marked.
+- *"I don't know"*: treat as "Not sure, suggest one".
 
 ## Reference files
 
@@ -179,12 +188,12 @@ Load on demand, never all at once.
 
 | File | Load when |
 |---|---|
+| `references/brainstorm.md` | Phase 0b, only on yes |
 | `references/archetypes/<type>.md` | Phase 1, exactly one |
 | `references/dimensions/<lens>.md` | Phase 1, active lenses only |
-| `references/question-craft.md` | before round 1, once |
-| `references/antipatterns.md` | before round 1, once |
+| `references/question-craft.md`, `references/antipatterns.md` | before round 1, once; antipatterns again at emit |
+| `references/delight.md` | Phase 3b |
 | `references/research.md` | Phase 1b, and before any mid-interview verification |
 | `references/defaults.md` | composing options; first stop before any web search |
 | `references/anchors.md` | composing any option that contains jargon |
-| `templates/spec-templates.md` | Phase 5 |
-| `templates/state.schema.json` | whenever you write `state.json` |
+| `templates/spec-templates.md`, `templates/state.schema.json` | Phase 5; the schema whenever you write `state.json` |

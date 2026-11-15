@@ -13,30 +13,34 @@ use that app's archetype plus the Experience lens instead.
 
 ---
 
-### GA1: where it is played `[required]`
+### GA1: where it is played `[must-ask]`
 **Ask:** Where will people play: a web browser (instant, no install), a phone, a PC through
 Steam or itch.io, or a console? Each has its own controls, stores and costs.
 **Options:** web browser (recommended for a first game) / phone / PC / console
 **Opens:** GA2 engine, GA8 controls, distribution
 
-### GA2: engine `[required]`
-**Ask:** Which engine? Godot is free forever with no royalties. Unity is free until the
-studio earns about $200,000 a year. Unreal takes 5% of revenue after the first $1 million.
-A web framework like Phaser suits small 2D browser games.
-**Options:** Godot (recommended for 2D and small 3D) / Unity / Unreal (big 3D) / a web
-framework
+### GA2: engine `[must-ask]`
+**Ask:** Have you already started in a game-making tool, or learned one? If not, I will
+pick one that fits where it is played and costs nothing, and tell you why. Some tools
+take a share of what the game earns later, so it is worth choosing on purpose.
+**Options:** no, suggest one (recommended) / yes, I use one already (name it) / I want
+to choose between them, show me the trade-offs
+**In the spec, or when they ask to choose:** Godot is free forever with no royalties
+(2D and small 3D). Unity is free until the studio earns about $200,000 a year. Unreal
+takes 5% of revenue after the first $1 million (big 3D). A web framework like Phaser
+suits small 2D browser games.
 **Opens:** language, asset pipeline, export targets
 **Evidence:** Unity Personal free under $200K revenue since January 2025 after the
 Runtime Fee was cancelled in September 2024; Godot MIT licence; Unreal 5% after $1M
 lifetime (documented, engine licence terms).
 
-### GA3: the thirty-second loop `[required]`
+### GA3: the thirty-second loop `[must-ask]`
 **Ask:** Describe what the player does over and over in thirty seconds. Jump, aim, match,
 build, answer? If this is not fun on grey boxes with no art, no amount of art will fix it.
 **Options:** free text; propose a one-line loop from the brief and let them correct it
 **Opens:** vertical slice, GA13 scope, prototype milestone
 
-### GA4: why come back tomorrow `[required]`
+### GA4: why come back tomorrow `[must-ask]`
 **Ask:** What brings a player back tomorrow: new levels, an unlocked item, a daily
 challenge, friends to beat, a story? Without one, most players leave after the first
 session.
@@ -44,7 +48,7 @@ session.
 (friends, leaderboards) / story
 **Opens:** save data (GA6), GA12 leaderboards, notifications
 
-### GA5: alone or together `[required]`
+### GA5: alone or together `[must-ask]`
 **Ask:** One player, taking turns with friends, or playing live at the same time? Live
 multiplayer is a different project: servers, lag, cheating and matchmaking. Turn-based
 is far cheaper.
@@ -52,39 +56,68 @@ is far cheaper.
 multiplayer
 **Opens:** servers, GA12 cheating, S2 source of truth, cost
 
-### GA6: saving `[required]`
+### GA6: saving `[must-ask]`
 **Ask:** Where is progress saved? On the device only means a new phone starts from zero.
 Cloud saves need accounts.
 **Options:** on the device, saved automatically at every checkpoint (recommended for v0) /
 cloud save with an account / none (short arcade games)
 **Opens:** O1 accounts, data model
 
-### GA7: learning to play `[optional]`
+### GA7: learning to play `[should-ask]`
 **Ask:** How does a new player learn the controls: a tutorial level, hints as they go, or
 nothing? Most players will not read instructions.
 **Options:** teach through the first level itself (recommended) / hints / separate tutorial
 **Opens:** level design, first-session flow
 
-### GA8: controls `[required]`
+### GA8: controls `[must-ask]`
 **Ask:** Touch, keyboard and mouse, or a game controller? A game designed for a keyboard
 rarely feels good on a touchscreen.
 **Options:** one primary input designed for first (recommended) / all equally
 **Opens:** UI layout, testing devices
 
-### GA9: performance target `[optional]`
+### GA9: performance target `[should-ask]`
 **Ask:** What is the weakest device it must run smoothly on? Budget phones heat up and drop
 frames quickly, and a stuttering game gets uninstalled.
 **Options:** a named low-end device at 60 frames per second (recommended) / mid-range
 only / PC only, not a concern
 **Opens:** art budget, effects, testing
 
-### GA10: art and sound `[required]`
+### GA10: art and sound `[must-ask]`
 **Ask:** How many characters, backgrounds, animations and sounds does v0 need, and who
 makes them? Count them now; games routinely need ten times the art people expect.
 **Options:** use the Experience lens asset list (E11 to E14) and produce the count
 **Opens:** asset delivery spec, licences, timeline
 
-### GA11: money `[optional]`
+### GA14: what the main action feels like `[should-ask]`
+**Ask:** The player does the main thing: lands a hit, clears a line, sticks a jump. What
+should that feel like? Each layer of effect is about a day of work, and too many make
+the screen hard to read.
+**Options:** heavy and crunchy: the screen jolts and everything freezes for a blink /
+light and snappy: a flash and a pop / soft and satisfying, like popping bubble wrap /
+quiet: the numbers change and that is enough / show me instead / something else / not
+sure, suggest one
+**Opens:** the effects list in `06-experience.md` (each with its trigger and length),
+sounds in GA10, GA15
+**Check:** this comes after GA3. Effects make a good loop feel better; they do not make
+a dull one fun.
+
+### GA15: comfort switches `[should-ask]`
+**Ask:** Shaking screens and flashes make some players feel ill, and some play with no
+sound. Which switches does the game have? Each is cheap now and awkward to add once the
+effects are built.
+**Options:** turn off shake and flashes, and nothing is told by sound alone
+(recommended) / those, plus changing which button does what / none in the first version
+**Opens:** settings screen, a second signal for every sound cue, GA8
+
+### GA16: strict or forgiving `[nice-to-have, when timing matters]`
+**Ask:** When a player presses jump a hair too late, does the game let it count? A
+forgiving game feels fair and a strict one feels sharp; players notice which you chose
+in the first minute, without knowing why.
+**Options:** forgiving, the near-misses count (recommended for most games) / strict,
+exact timing is the point / something else
+**Opens:** the timing windows as numbers (F17), difficulty
+
+### GA11: money `[nice-to-have]`
 **Ask:** How does it earn money, if at all? Paid up front, ads, or in-game purchases?
 Paid random rewards (loot boxes) are treated as gambling in some countries, and anything
 children play carries extra rules.
@@ -92,7 +125,7 @@ children play carries extra rules.
 purchases, no random paid rewards
 **Opens:** store rules, O4 minors, payments
 
-### GA12: leaderboards and cheating `[optional, when scores are compared]`
+### GA12: leaderboards and cheating `[should-ask, when scores are compared]`
 **Ask:** If scores are compared, can someone fake one? A score sent straight from the game
 can be edited in seconds. Checking it on a server, or only comparing with friends, keeps
 it honest.
@@ -100,7 +133,7 @@ it honest.
 trusting the game
 **Opens:** server, S1 exactness, O9 abuse
 
-### GA13: the vertical slice `[required]`
+### GA13: the vertical slice `[must-ask]`
 **Ask:** What is the smallest version that shows the whole game: one level, finished to the
 quality you want, start to end? Build that first and show it to five people before making
 more.
@@ -115,6 +148,8 @@ more.
 - The game pauses when it loses focus or a phone call arrives.
 - Progress saves automatically at every checkpoint.
 - Sound and music each have their own volume control.
+- Nothing the player needs is told by sound alone or by colour alone.
+- Effects never hide what the player has to react to.
 - Frame rate target is set before art production starts.
 
 ## Cascade rules
@@ -126,3 +161,5 @@ more.
 | in-game purchases | GA11, store rules, O4 minors, payments |
 | cloud saves | O1 accounts, O2 deletion |
 | phone | M-pack questions on interruption (M9), storage (M13), distribution (M11) |
+| heavy or crunchy effects | GA15, effect lengths as numbers, a check that the action stays readable |
+| timing matters | GA16, timing windows in F17 |

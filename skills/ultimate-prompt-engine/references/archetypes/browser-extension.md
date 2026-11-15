@@ -17,13 +17,13 @@ all users on 24 July 2025 and removed from the Chrome Web Store on 31 August 202
 
 ---
 
-### X1: which browsers `[required]`
+### X1: which browsers `[must-ask]`
 **Ask:** Which browsers must it run in? Chrome and Edge share one extension format. Firefox
 is close but different in places. Safari requires a Mac, Xcode and the App Store.
 **Options:** Chrome and Edge (recommended for v0) / plus Firefox / plus Safari
 **Opens:** store listings, testing, build setup
 
-### X2: how much access it asks for `[required]`
+### X2: how much access it asks for `[must-ask]`
 **Ask:** Which websites does it need to read or change? "Read and change all your data on
 all websites" shows a scary warning at install, slows store review, and loses users.
 Asking only when the user clicks the extension on a page shows no warning at all.
@@ -31,7 +31,7 @@ Asking only when the user clicks the extension on a page shows no warning at all
 all sites
 **Opens:** store review time, install conversion, O3 privacy
 
-### X3: background work `[required, when it does anything in the background]`
+### X3: background work `[must-ask, when it does anything in the background]`
 **Ask:** Does it need to keep running or remember things while the user is not
 interacting? In Manifest V3 the background script is shut down after a short idle
 period, so anything held only in memory disappears and timers must use the browser's
@@ -40,7 +40,7 @@ alarm system.
 alarms / needs a long-running process (reconsider the design)
 **Opens:** storage (X5), timers, S6
 
-### X4: when the website changes `[required, when it modifies specific sites]`
+### X4: when the website changes `[must-ask, when it modifies specific sites]`
 **Ask:** It works by reading the layout of sites like LinkedIn or YouTube. When they
 redesign, and they will, it breaks overnight. How will you find out, and how fast can you
 ship a fix given that store review takes time?
@@ -48,29 +48,29 @@ ship a fix given that store review takes time?
 changed" message (recommended) / user reports / accept breakage
 **Opens:** O6 monitoring, X8 update speed, support
 
-### X5: where its data lives `[required]`
+### X5: where its data lives `[must-ask]`
 **Ask:** Where does it keep what it saves? On this computer only, synced to the user's
 other computers through the browser (small size limit), or on your own server (needs
 accounts and a privacy policy)?
 **Options:** local only (recommended for v0) / browser sync for small settings / your
 server
-**Opens:** accounts (X11), O3, S2
+**Opens:** accounts (X9), O3, S2
 
-### X6: store rules `[required]`
+### X6: store rules `[must-ask]`
 **Ask:** The Chrome Web Store requires a single clear purpose, a privacy disclosure for
 any data handled, and a privacy policy if any user data is collected. Extensions that do
 two unrelated things, or hide what they collect, get rejected or pulled.
 **Options:** one purpose, minimal data, disclosed (recommended) / free text to discuss
 **Opens:** O3, O10 launch, listing text
 
-### X7: where it appears `[required]`
+### X7: where it appears `[must-ask]`
 **Ask:** Where does the user see it: a small popup from the toolbar icon, a side panel that
 stays open, something added inside the web page itself, or only a settings page?
 **Options:** popup (recommended for quick actions) / side panel (for longer work) / inside
 the page / settings only
 **Opens:** E-lens screens, X4 fragility (inside-page UI breaks most often)
 
-### X8: shipping fixes `[optional]`
+### X8: shipping fixes `[should-ask]`
 **Ask:** Every update goes through store review before users get it, which can take days.
 Manifest V3 also forbids loading code from your server, so logic cannot be changed
 remotely. Is that acceptable for how often this will need fixes?
@@ -78,13 +78,13 @@ remotely. Is that acceptable for how often this will need fixes?
 server (allowed; code is not) / reconsider
 **Opens:** X4, release process
 
-### X9: accounts `[optional]`
+### X9: accounts `[nice-to-have]`
 **Ask:** Does it need people to sign in? Many good extensions need no account at all.
 **Options:** no account (recommended) / sign in with the browser's Google account / its own
 accounts
 **Opens:** O1, O2 deletion, X5
 
-### X10: money `[optional]`
+### X10: money `[nice-to-have]`
 **Ask:** Will any part be paid? The Chrome Web Store has no built-in payments, so paid
 features need your own checkout and a way for the extension to check who has paid.
 **Options:** free (recommended for v0) / paid features via your own site / donations

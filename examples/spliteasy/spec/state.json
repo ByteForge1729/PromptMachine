@@ -1,10 +1,11 @@
 {
   "skill": "ultimate-prompt-engine",
+  "schema_version": 2,
   "project": "SplitEasy",
   "archetype": "mobile-app",
-  "depth": "standard",
+  "phase": "emitted",
   "round": 5,
-  "round_budget": 5,
+  "stopped_early": false,
   "lenses": [
     "product",
     "feature",
@@ -403,19 +404,19 @@
   ],
   "coverage": {
     "product": {
-      "required": 8,
+      "must": 8,
       "done": 8
     },
     "feature": {
-      "required": 10,
+      "must": 10,
       "done": 10
     },
     "mobile-app": {
-      "required": 8,
+      "must": 8,
       "done": 8
     },
     "experience": {
-      "required": 12,
+      "must": 12,
       "done": 12
     }
   },
@@ -436,9 +437,7 @@
       "source": "https://thinkingcrayfish.substack.com/p/product-study-splitwise"
     }
   ],
-  "phase": "emitted",
   "auto_decided": 27,
-  "schema_version": 1,
   "amendments": [
     {
       "date": "2026-09-21",

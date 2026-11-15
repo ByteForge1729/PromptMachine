@@ -1,12 +1,11 @@
 {
   "skill": "ultimate-prompt-engine",
-  "schema_version": 1,
+  "schema_version": 2,
   "project": "PYQ Coach",
   "archetype": "ml-system (with web-app)",
-  "depth": "standard",
   "phase": "emitted",
   "round": 5,
-  "round_budget": 5,
+  "stopped_early": false,
   "lenses": [
     "product",
     "feature",
@@ -83,8 +82,8 @@
     },
     {
       "id": "D4",
-      "q": "Standard interview depth",
-      "answer": "Standard interview depth",
+      "q": "Interview length",
+      "answer": "Five interview rounds",
       "status": "answered",
       "source": "option",
       "found_at_emit": false
@@ -339,8 +338,8 @@
     },
     {
       "id": "A6",
-      "q": "You pay reading costs up to \u20b91,000 a semester, capped; then reading queues",
-      "answer": "You pay reading costs up to \u20b91,000 a semester, capped; then reading queues",
+      "q": "You pay reading costs up to ₹1,000 a semester, capped; then reading queues",
+      "answer": "You pay reading costs up to ₹1,000 a semester, capped; then reading queues",
       "status": "auto-decided",
       "source": "claude",
       "found_at_emit": false
@@ -491,8 +490,8 @@
     },
     {
       "id": "A30",
-      "q": "Figure crop fails \u2192 show the whole question region",
-      "answer": "Figure crop fails \u2192 show the whole question region",
+      "q": "Figure crop fails → show the whole question region",
+      "answer": "Figure crop fails → show the whole question region",
       "status": "auto-decided",
       "source": "claude",
       "found_at_emit": false
@@ -613,27 +612,27 @@
   ],
   "coverage": {
     "product": {
-      "required": 8,
+      "must": 8,
       "done": 8
     },
     "feature": {
-      "required": 10,
+      "must": 10,
       "done": 10
     },
     "experience": {
-      "required": 12,
+      "must": 12,
       "done": 12
     },
     "systems": {
-      "required": 12,
+      "must": 12,
       "done": 12
     },
     "operations": {
-      "required": 12,
+      "must": 12,
       "done": 12
     },
     "ml-system": {
-      "required": 13,
+      "must": 13,
       "done": 13
     }
   }

@@ -1,4 +1,4 @@
-# PYQ Coach: spec (Standard mode)
+# PYQ Coach: spec
 
 **What:** A student-built bank of IIT Bombay past papers. Seniors upload or photograph
 papers; an AI model reads every question and sorts it by syllabus topic; students see an

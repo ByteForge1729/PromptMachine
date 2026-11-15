@@ -47,6 +47,20 @@ When you invent a good anchor, add it here.
 | Progressive disclosure | Show three options, hide twenty behind "Advanced", like the iPhone camera |
 | Haptics | Small vibrations on action, like the iPhone keyboard or Apple Pay confirmation |
 | Micro-interaction | Tiny animation acknowledging a tap, like the Twitter heart burst or Duolingo's streak flame |
+| Scroll-driven animation | The page plays like a film as you scroll and stops when you stop, like an Apple product page |
+| WebGL / 3D scene | A real 3D object or space inside the page that you can turn or move through, like spinning a phone on Apple's site or the globe on GitHub's home page |
+| Shader | A live moving texture drawn by the graphics chip, like the slow colour clouds behind Stripe's home page |
+| Page transition | The current page changes into the next one instead of blinking to white, like a photo in your phone gallery growing to fill the screen |
+| Smooth scrolling | The page glides and settles after you stop, instead of stopping dead. Feels rich; some people find it sluggish |
+| Easing | How a movement speeds up and slows down. A drawer that starts fast and settles gently feels quick; one that moves at one speed feels like a machine |
+| Reduced motion | A phone and computer setting for people whom movement makes dizzy or sick. The product swaps its big movements for simple fades |
+| Fallback | The simpler version a weaker phone gets, like a still picture where the 3D scene would be |
+| Screen shake | The whole picture jolts for a moment on a big hit, like an explosion in almost any action game |
+| Hit pause | Everything freezes for a blink when a blow lands, which makes it feel heavy, like a strong punch in Street Fighter |
+| Squash and stretch | Things flatten when they land and lengthen when they jump, like a bouncing ball in a cartoon |
+| Coyote time | The game still lets you jump a split second after running off a ledge, so it feels fair instead of strict |
+| Scrubbing | Dragging through time by hand, like dragging the bar under a YouTube video |
+| Draggable number | A number in a sentence that you grab and slide to change, and the picture follows at once |
 
 ## Architecture and data
 

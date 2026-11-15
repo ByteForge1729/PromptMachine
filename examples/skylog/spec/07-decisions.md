@@ -10,7 +10,7 @@ Reversibility: **cheap** (an afternoon), **costly** (days or a data migration),
 | D1 | Both jobs from day one: campus nights and trip weekends | 0 |
 | D2 | Logging is a few taps, notes added later | 0 |
 | D3 | Members only | 0 |
-| D4 | Quick interview depth | 0 |
+| D4 | Keep the interview to three rounds | 0 |
 | D5 | Logs saved on the phone with no signal, uploaded later | 1 |
 | D6 | Show the raw forecast | 1 |
 | D7 | Join through an invite link from a coordinator | 1 |

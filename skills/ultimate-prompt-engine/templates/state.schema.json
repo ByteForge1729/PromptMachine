@@ -3,17 +3,40 @@
   "title": "ultimate-prompt-engine interview state",
   "description": "Machine state for resuming and amending an interview. Written after every Phase 3 review.",
   "type": "object",
-  "required": ["skill", "project", "archetype", "depth", "round", "round_budget", "lenses", "decisions", "contradictions", "open_cascades", "coverage"],
+  "required": ["skill", "project", "archetype", "round", "lenses", "decisions", "contradictions", "open_cascades", "coverage"],
   "properties": {
     "skill": {"const": "ultimate-prompt-engine"},
-    "schema_version": {"type": "integer", "default": 1},
+    "schema_version": {"type": "integer", "default": 2},
     "project": {"type": "string"},
     "archetype": {"type": "string"},
-    "depth": {"enum": ["quick", "standard", "deep"]},
-    "phase": {"enum": ["intake", "interview", "gate_passed", "emitted", "amending"]},
+    "phase": {"enum": ["intake", "brainstorm", "interview", "emitted", "amending"]},
     "round": {"type": "integer", "minimum": 0},
-    "round_budget": {"type": "integer"},
+    "stopped_early": {"type": "boolean", "description": "True when the user said 'enough' with must-ask or should-ask questions still open"},
     "lenses": {"type": "array", "items": {"type": "string"}},
+    "brainstorm": {
+      "type": "object",
+      "description": "Synthesis of the optional brainstorm. Not decisions.",
+      "properties": {
+        "kept": {"type": "array", "items": {"type": "string"}},
+        "pushed_away": {"type": "array", "items": {"type": "string"}},
+        "open_threads": {"type": "array", "items": {"type": "string"}},
+        "idea": {"type": "string"}
+      }
+    },
+    "delights": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["id", "name", "status"],
+        "properties": {
+          "id": {"type": "string", "description": "DL1, DL2, ..."},
+          "name": {"type": "string"},
+          "reason": {"type": "string"},
+          "cost": {"type": "string"},
+          "status": {"enum": ["accepted", "edited", "rejected"]}
+        }
+      }
+    },
     "decisions": {
       "type": "array",
       "items": {
@@ -66,7 +89,8 @@
     },
     "coverage": {
       "type": "object",
-      "additionalProperties": {"type": "object", "required": ["required", "done"], "properties": {"required": {"type": "integer"}, "done": {"type": "integer"}}}
+      "description": "Per lens: how many must-ask and should-ask questions apply, and how many of each are answered or assumed",
+      "additionalProperties": {"type": "object", "required": ["must", "done"], "properties": {"must": {"type": "integer"}, "done": {"type": "integer"}, "should": {"type": "integer"}, "should_done": {"type": "integer"}}}
     }
   }
 }

@@ -1,8 +1,9 @@
 # Defaults
 
 Settled choices, so you do not burn a web search on a question that already has a good
-answer. Use these to populate the "(Recommended)" option and to auto-decide when the
-user says "decide for me".
+answer. Use these to populate the "(Recommended)" option, to answer "Not sure, suggest
+one", and to fill what is left when the user says "enough". Taste is never defaulted
+from here: looks come from the user's answers in the Experience lens.
 
 **Every entry is dated.** A stale recommendation is still useful because the reasoning
 outlives the product names. When an entry is more than a year old, keep the reasoning,
@@ -103,6 +104,29 @@ when the platform makes it cheap.
 | Free illustrations | unDraw, Storyset | Check the licence of each one before shipping |
 
 *Reviewed 2026-09.*
+
+## Look, motion and speed
+
+These go into the spec. They never appear in a question. They set how a chosen look is
+built, not which look is chosen.
+
+| If | Then | Because |
+|---|---|---|
+| Any movement in an app or tool | Under 300 ms, starting fast and settling gently (ease-out) | Longer feels slow; a 180 ms menu feels quicker than a 400 ms one (Kowalski, documented) |
+| An action done many times a day, or started from the keyboard | No animation | Repeated flourishes tire people (Kowalski; Freiberg, documented) |
+| Anything animated | Move and fade only; never animate size or position properties | These stay smooth on weak devices (Vercel Web Interface Guidelines, documented) |
+| The device has movement switched off | Swap big movements for a short fade; keep progress indicators | For some people this is a medical need. Swap, do not strip (web.dev; Kowalski, documented) |
+| A page people come to look at | Main content within 2.5 s, taps answered within 200 ms, nothing jumping as it loads | Google's "good" thresholds at the 75th percentile (web.dev Core Web Vitals, documented) |
+| A 3D scene or heavy effect | A still picture first; the scene loads after; a simpler version or the still on weak devices | Award-site case studies describe exactly this work (Awwwards: Aircord; Adoratorio, documented) |
+| 3D on phones | Cap the sharpness, keep shadows small, avoid stacked effect passes, draw only when something changes | Each is a known cost (Discover three.js, documented; the page says its tips are not measured) |
+| Lettering | One face for headings, one for reading, sizes in large steps | Small steps and one default face are the most common marks of a generic page (Anthropic, documented) |
+| Colour | One main colour and one sharp accent, each with a named job | Even, timid palettes read as default (Anthropic; prg.sh, documented) |
+| Anything tappable | At least 24 px, 44 px on phones; typing fields 16 px on phones | Smaller is missed or zooms the page (Vercel, documented) |
+| A screen in an app or tool | Empty, few, many and error versions each designed | The states generic builds leave out (Vercel; prg.sh, documented) |
+| A game effect such as shake or a freeze on impact | Short, fading out, with an off switch | Overuse annoys and hides the action (Lovato, documented); shake of 50 to 300 ms is widely reported, not verified |
+
+*Reviewed 2026-11. Sources and what could not be verified: `docs/research-notes.md` in
+the repository.*
 
 ## Hosting and deploy
 

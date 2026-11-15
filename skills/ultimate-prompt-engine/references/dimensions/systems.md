@@ -13,28 +13,28 @@ projects come from treating the two the same.
 
 ---
 
-### S1: what must be exact `[required]`
+### S1: what must be exact `[must-ask]`
 **Ask:** Which numbers or states must never be wrong, even for a second? Money, stock
 left, votes, a seat that can only be booked once. Everything on this list is computed in
 one place (the server) and never on a phone, and that decision shapes the whole build.
 **Options:** propose the list from the brief and the P8 answer; let them add or remove
 **Opens:** server-side logic, transactions, invariants in 03-data-model.md
 
-### S2: the source of truth `[required, when data exists on more than one device]`
+### S2: the source of truth `[must-ask, when data exists on more than one device]`
 **Ask:** When a phone and the server disagree, which one is right? The answer decides
 whether the app can work offline and what the user sees while it is out of date.
 **Options:** server always wins, phone shows a labelled copy (recommended) / phone wins
 and syncs up later / depends on the kind of data, decide per item
 **Opens:** offline behaviour, conflict handling, "last updated" labels
 
-### S3: who sees what `[required, when more than one person uses it]`
+### S3: who sees what `[must-ask, when more than one person uses it]`
 Not a question as written. Build a short visibility table from the answers so far:
 each kind of data × each kind of person (owner, group member, stranger, admin). Show it
 and ask only *"anything here that should be more private?"* Leaks almost always come
 from a cell nobody filled in.
 **Opens:** security rules, privacy text, O3
 
-### S4: outside services `[required]`
+### S4: outside services `[must-ask]`
 **Ask:** Which outside services will this depend on (sign-in, payments, maps, AI, email,
 messaging)? For each one: what does the user see when it is down, and what happens if it
 raises prices or shuts down?
@@ -44,14 +44,14 @@ Dynamic Links shut down on 25 August 2025 and is still in many guides.)
 **Options:** free text, then propose the failure behaviour for each service
 **Opens:** 05-architecture.md integrations table, 08-risks.md
 
-### S5: the stack check `[required, when the user has named tools]`
+### S5: the stack check `[must-ask, when the user has named tools]`
 Not a question. List the tools the user already chose and search each for limits that
 collide with answers so far: Expo Go cannot load native modules; some Firebase features
 need the paid plan; a static-site host cannot run scheduled jobs. Raise every collision
 as a clash in Phase 3. This check caught the largest decision in the first dry run.
 **Opens:** 05-architecture.md, A-decisions with evidence links
 
-### S6: clocks and time `[required, when anything is scheduled, expires or counts days]`
+### S6: clocks and time `[must-ask, when anything is scheduled, expires or counts days]`
 **Ask:** Something happens after a waiting period: a reminder, an expiry, a streak. Whose
 clock counts? A phone's clock can be changed to skip ahead, and phones stop background
 work to save battery.
@@ -59,7 +59,7 @@ work to save battery.
 timed behaviour
 **Opens:** scheduled server jobs, time zones, timer accuracy
 
-### S7: live updates `[optional]`
+### S7: live updates `[should-ask]`
 **Ask:** When Priya adds something, does Rahul need to see it appear on his screen
 instantly, or is it fine when he next opens or refreshes? Instant costs more to build and
 run, and most apps do not need it everywhere.
@@ -67,13 +67,13 @@ run, and most apps do not need it everywhere.
 pull-to-refresh
 **Opens:** realtime listeners, cost, battery
 
-### S8: files and media `[optional]`
+### S8: files and media `[should-ask]`
 **Ask:** Will people upload photos or files? Each one needs storage you pay for, a size
 limit, and a decision about who can open the link.
 **Options:** none in v0 (recommended) / images only, compressed / any file
 **Opens:** storage, size limits, link privacy, E-lens asset rules
 
-### S9: getting data in and out `[optional]`
+### S9: getting data in and out `[nice-to-have]`
 **Ask:** Can people bring their data from what they use today, and take it with them if
 they leave? An import path lowers the cost of switching to you; an export is often a
 legal right and builds trust.
@@ -81,21 +81,21 @@ legal right and builds trust.
 competitor too / neither in v0
 **Opens:** file formats, P2 switching cost
 
-### S10: guessable links `[optional, when anything is shared by link]`
+### S10: guessable links `[should-ask, when anything is shared by link]`
 **Ask:** If someone gets a share link, can they change a number in it and see someone
 else's data? Links built from short or counting IDs can be guessed.
 **Options:** long random IDs and expiring links (recommended) / links never grant access
 without sign-in
 **Opens:** ID format, link expiry, security rules
 
-### S11: changing the data later `[optional]`
+### S11: changing the data later `[nice-to-have]`
 **Ask:** When a later version changes how data is stored, what happens to people still on
 the old app? Old phones keep running old code for weeks.
 **Options:** support old versions for a while (recommended) / force an update screen /
 ignore, tiny user base
 **Opens:** migrations, forced update, API versioning
 
-### S12: AI features `[required, when the product calls an AI model]`
+### S12: AI features `[must-ask, when the product calls an AI model]`
 **Ask:** When the AI gives a wrong or strange answer, what does the user see and who is
 responsible? Also: each call costs money and takes seconds. Who pays, and what shows
 while it thinks?

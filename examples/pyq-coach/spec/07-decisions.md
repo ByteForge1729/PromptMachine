@@ -20,7 +20,7 @@ Reversibility: **cheap** (an afternoon), **costly** (days or a data migration),
 | D1 | Shared bank free for everyone; students may add their own API key for personal generation | 0 |
 | D2 | Unconfirmed solutions sit behind a red "checks disagreed" card and never enter plans | 0, 1 |
 | D3 | Only mid-sem and end-sem papers from past semesters | 0 |
-| D4 | Standard interview depth | 0 |
+| D4 | Five interview rounds | 0 |
 | D5 | Own-key questions are private, shareable by their owner | 1 |
 | D6 | No leaderboard | 1 |
 | D7 | Syllabus pasted from the catalogue by the first uploader, confirmed by a second student | 1 |

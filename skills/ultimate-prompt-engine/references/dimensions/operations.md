@@ -10,7 +10,7 @@ could carry legal risk. Never skip a question here because it sounds boring.
 
 ---
 
-### O1: how people sign in `[required, when accounts exist]`
+### O1: how people sign in `[must-ask, when accounts exist]`
 **Ask:** How do people sign in? Every password you store is a reset flow, a breach risk
 and a support email.
 **Options:** Google sign-in (recommended for students) / phone number with OTP / email
@@ -18,7 +18,7 @@ magic link / no accounts at all
 **Opens:** auth provider (defaults.md), O2, OTP cost if phone
 **Note:** phone OTP costs money per SMS; say so.
 
-### O2: deleting an account `[required, when accounts exist and it ships to a store]`
+### O2: deleting an account `[must-ask, when accounts exist and it ships to a store]`
 **Ask:** How does someone delete their account and data? Both app stores require it:
 Google Play needs an in-app path **and** a web link that works after uninstalling; Apple
 needs it inside the app. Also: what stays behind, like their name on shared records?
@@ -28,7 +28,7 @@ needs it inside the app. Also: what stays behind, like their name on shared reco
 **Evidence:** Google Play Console Help, "account deletion requirements" (documented);
 Apple guideline 5.1.1(v) (documented).
 
-### O3: personal data and consent `[required]`
+### O3: personal data and consent `[must-ask]`
 **Ask:** What personal data does this collect (names, phone numbers, contacts,
 location, payment IDs), and for what? Each item needs a stated purpose. India's DPDP Rules
 were notified on 14 November 2025 with an 18-month phase-in; they require clear consent
@@ -40,7 +40,7 @@ a clear purpose
 **Always:** data about people who never signed up (contacts, ghost members, tagged
 friends) gets its own line: minimal, deletable on request.
 
-### O4: under-18 users `[required, when users could be minors]`
+### O4: under-18 users `[must-ask, when users could be minors]`
 **Ask:** Could anyone using this be under 18? First-year college students can be 17. Under
 India's DPDP rules, processing a child's data needs verifiable parental consent, and store
 policies add their own rules for apps used by children.
@@ -48,7 +48,7 @@ policies add their own rules for apps used by children.
 parental consent / not relevant
 **Opens:** age gate, consent flow, store content rating
 
-### O5: who pays to run it `[required]`
+### O5: who pays to run it `[must-ask]`
 **Ask:** What does this cost per month at your expected size, who pays, and what is the
 ceiling before you would shut something off? Several free tiers require a payment card
 on file even when usage stays free.
@@ -56,34 +56,34 @@ on file even when usage stays free.
 budget alert
 **Opens:** 05-architecture.md cost section, budget alerts, 08-risks.md
 
-### O6: knowing it broke `[required]`
+### O6: knowing it broke `[must-ask]`
 **Ask:** How will you find out it is broken before your users tell you? Crash reports
 from the first build cost nothing and catch most problems.
 **Options:** crash reporting plus an alert on server errors (recommended) / crash
 reporting only / users tell me
 **Opens:** crash tool choice, error alerts, O7
 
-### O7: where users report problems `[optional]`
+### O7: where users report problems `[nice-to-have]`
 **Ask:** When something goes wrong, how does a user reach you? Stores require a support
 contact, and a "report a problem" button that attaches the app version saves hours.
 **Options:** in-app "report a problem" to email (recommended) / a WhatsApp group / store
 reviews only
 **Opens:** support email, feedback screen
 
-### O8: backups `[required, when data matters]`
+### O8: backups `[must-ask, when data matters]`
 **Ask:** If the database were wiped tomorrow, or a bad update corrupted it, what could you
 restore? Managed databases often do not back up by default on free plans.
 **Options:** scheduled automatic backups (recommended) / manual export weekly / accept
 the risk
 **Opens:** backup schedule, restore test, cost
 
-### O9: abuse and limits `[optional]`
+### O9: abuse and limits `[should-ask]`
 **Ask:** What stops someone from spamming invites, creating thousands of accounts, or
 sending huge numbers of requests? A small cap on the obvious actions prevents most of it.
 **Options:** simple limits on invites, sign-ups and writes (recommended) / none in v0
 **Opens:** rate limits, security rules, F10
 
-### O10: the launch path `[required, when it ships to anyone]`
+### O10: the launch path `[must-ask, when it ships to anyone]`
 **Ask:** How do the first real users get it, and what do you need ready that day? Stores
 need a privacy policy link, a support contact, a data safety or privacy form, and review
 time.
@@ -91,13 +91,13 @@ time.
 web link only
 **Opens:** privacy policy page, store forms, 10-build-plan.md release milestone
 
-### O11: the ten events `[optional]`
+### O11: the ten events `[nice-to-have]`
 **Ask:** Which ten user actions do you want to count, to know whether the success number
 in P5 is being hit? Decide them before launch; you cannot measure the past.
 **Options:** propose the ten from P5 and the core loop
 **Opens:** analytics tool, consent (O3)
 
-### O12: keeping it alive `[optional]`
+### O12: keeping it alive `[nice-to-have]`
 **Ask:** What needs regular care even if you add nothing? Stores periodically require
 apps to target newer Android versions, keys and domains expire, and dependencies go
 stale. Who does it, and how often?

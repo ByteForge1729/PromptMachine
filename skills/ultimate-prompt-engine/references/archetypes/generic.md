@@ -28,41 +28,41 @@ documented, widely reported or your judgment.
 
 Pick the ones that apply. Rewrite each as a plain scenario for this project.
 
-### G1: where it runs `[required]`
+### G1: where it runs `[must-ask]`
 **Ask:** Where does it actually run: on the user's computer, on a server you pay for, on
 someone else's platform, on a device? That decides who pays, who updates it, and what
 happens when that machine is off.
 **Opens:** hosting, cost (O5), uptime
 
-### G2: who installs and updates it `[required]`
+### G2: who installs and updates it `[must-ask]`
 **Ask:** How does a new user get it, and how does a fix reach people who already have it?
 A script someone downloaded once never gets your bug fixes.
 **Opens:** distribution, auto-update, versioning (S11)
 
-### G3: what starts it `[required]`
+### G3: what starts it `[must-ask]`
 **Ask:** What makes it do something: a person typing a command, a schedule, a message
 arriving, a sensor, a file appearing? Each trigger has its own way of silently not
 firing.
 **Opens:** scheduling (S6), monitoring (O6), F2
 
-### G4: what it is allowed to touch `[required]`
+### G4: what it is allowed to touch `[must-ask]`
 **Ask:** What does it need permission to read or change: files, a chat server, an email
 account, someone's calendar? Ask for the least; platforms review and users judge broad
 permissions harshly.
 **Opens:** permission scopes, O3 privacy, security
 
-### G5: the gatekeeper `[required, when a platform hosts or distributes it]`
+### G5: the gatekeeper `[must-ask, when a platform hosts or distributes it]`
 **Ask:** Who can take it down or block it: an app store, a bot platform's rules, an API's
 rate limits or terms? What are their rules for this kind of project?
 **Research always:** read the current policy page; say what you found and when.
 **Opens:** policy compliance, rate limits, 08-risks.md
 
-### G6: when it fails, who notices `[required]`
+### G6: when it fails, who notices `[must-ask]`
 **Ask:** If it stops working at 3 a.m., who finds out, and how? Background things fail
 silently by default.
 **Opens:** O6 alerts, logs, retries
 
-### G7: the physical world `[required, when hardware is involved]`
+### G7: the physical world `[must-ask, when hardware is involved]`
 **Ask:** What happens when power drops, the network is gone, or the device is moved?
 Hardware adds parts to buy, wear out and ship.
 **Opens:** offline behaviour, bill of materials, safety

@@ -1,12 +1,11 @@
 {
   "skill": "ultimate-prompt-engine",
-  "schema_version": 1,
+  "schema_version": 2,
   "project": "Skylog",
   "archetype": "web-app",
-  "depth": "quick",
   "phase": "emitted",
   "round": 3,
-  "round_budget": 3,
+  "stopped_early": false,
   "lenses": [
     "product",
     "feature",
@@ -39,8 +38,8 @@
     },
     {
       "id": "D4",
-      "q": "Quick interview depth",
-      "answer": "Quick interview depth",
+      "q": "Interview length",
+      "answer": "Keep the interview to three rounds",
       "status": "answered",
       "found_at_emit": false
     },
@@ -186,8 +185,8 @@
     },
     {
       "id": "A12",
-      "q": "Log fields: object, site, time, 1\u20135 rating, optional notes. No photos in v0",
-      "answer": "Log fields: object, site, time, 1\u20135 rating, optional notes. No photos in v0",
+      "q": "Log fields: object, site, time, 1–5 rating, optional notes. No photos in v0",
+      "answer": "Log fields: object, site, time, 1–5 rating, optional notes. No photos in v0",
       "status": "auto-decided",
       "found_at_emit": false
     },
@@ -308,9 +307,9 @@
     {
       "between": [
         "R0.worth-it: both",
-        "D4 quick depth"
+        "D4 three-round interview"
       ],
-      "issue": "Both jobs in a Quick-mode project doubles scope",
+      "issue": "Both jobs in a three-round interview doubles scope",
       "resolved_by": "A0 build order"
     },
     {
@@ -378,23 +377,23 @@
   ],
   "coverage": {
     "product": {
-      "required": 8,
+      "must": 8,
       "done": 8
     },
     "feature": {
-      "required": 10,
+      "must": 10,
       "done": 10
     },
     "experience": {
-      "required": 12,
+      "must": 12,
       "done": 12
     },
     "systems": {
-      "required": 12,
+      "must": 12,
       "done": 12
     },
     "operations": {
-      "required": 12,
+      "must": 12,
       "done": 12
     }
   }
