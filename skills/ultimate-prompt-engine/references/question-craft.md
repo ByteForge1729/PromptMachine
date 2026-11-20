@@ -87,9 +87,10 @@ Do not ask "which of my assumptions are wrong?" as a checklist; it reads like a 
 users bounce off it. Turn the riskiest assumptions into small scenarios:
 
 > Rahul owes you ₹200 and pays you back. How does that happen?
-> a) He pays on GPay, then someone taps "settled"
-> b) He pays inside the app
-> c) The app opens GPay for him with the amount filled in
+>
+> - a) He pays on GPay, then someone taps "settled"
+> - b) He pays inside the app
+> - c) The app opens GPay for him with the amount filled in
 
 Offer the brainstorm in the same batch, once.
 
@@ -111,17 +112,26 @@ web UI): emit one compact block the user answers in a single message. The tool's
 slots would leave a taste question two real options, and two is already a narrowing.
 
 ```
-**Q1. <question with its stakes>**
-  a) <option>: <anchor>  (recommended, non-taste questions only)
-  b) <option>: <anchor>
-  c) <option>: <anchor>
-  d) <option>: <anchor>
-  e) Show me instead: send pictures or links  (taste questions only)
-  f) Something else
-  g) Not sure, suggest one
+**Q1. <the question>**
+<its stakes, in one or two sentences>
+
+- a) **<option> (recommended)**. <anchor>   ← recommended: non-taste questions only
+- b) **<option>**. <anchor>
+- c) **<option>**. <anchor>
+- d) **<option>**. <anchor>
+- e) Show me instead: send pictures or links   ← taste questions only
+- f) Something else
+- g) Not sure, suggest one
 
 Reply like: 1a 2c 3g 4b, or write freely.
 ```
+
+**Layout is part of the question.** The question in bold on its own line, the stakes on
+the next, a blank line, then **every option as its own markdown bullet** (`- a) ...`).
+Never run options together in a sentence or on plain lines: chat apps join plain lines
+into one paragraph, and a paragraph of options is hard to read. The same goes for any
+other list inside a question (yes/no items, extras to accept or skip): one bullet each,
+never a `·`-separated line. A blank line between questions.
 
 Either way: **at most 4 questions visible at once**, no walls of text, no restating
 what they just told you. Terse is respectful.

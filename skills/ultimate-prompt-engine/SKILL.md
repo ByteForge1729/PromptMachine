@@ -171,7 +171,8 @@ Every question passes all of these. Explanations and examples:
 **Mechanics:** with a question tool (Claude Code, Cowork), use it for non-taste
 questions: 4 questions × 4 options, so 3 real options plus "Not sure, suggest one" (the
 tool adds "Something else"). Taste questions, and any harness without a tool, use the
-numbered block in `question-craft.md`. Never more than 4 questions on screen.
+numbered block in `question-craft.md`, with every option as its own bullet, never run
+together in a paragraph. Never more than 4 questions on screen.
 
 ## Escape hatches
 

@@ -1,5 +1,12 @@
 # Changelog
 
+## 2.0.1: 2026-11-20
+
+- **Questions are laid out as bullets.** The question on its own line, the stakes under
+  it, then each option as its own bullet. Lists inside a question (yes/no items, extras)
+  are bulleted too. Before, chat apps joined the options into one long paragraph. The
+  wording of questions and options is unchanged.
+
 ## 2.0.0: 2026-11-15
 
 Feel-first questions, a brainstorm, a delight step, and no more depth modes. Sources

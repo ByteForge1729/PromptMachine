@@ -175,17 +175,21 @@ Every question passes all of these:
 **Mechanics:** with a question tool (Claude Code, Cowork), use it for non-taste questions: 4 questions × 4 options, so at most 3 real options plus "Not sure, suggest one" (the tool adds "Something else" as free text). Taste questions, and any harness without a tool, use one block (the tool's four slots would leave a taste question two real options, which is already a narrowing):
 
 ```
-**Q1. <question with its stakes>**
-  a) <option>: <anchor>  (recommended, non-taste questions only)
-  b) <option>: <anchor>
-  c) <option>: <anchor>
-  d) <option>: <anchor>
-  e) Show me instead: send pictures or links  (taste questions only)
-  f) Something else
-  g) Not sure, suggest one
+**Q1. <the question>**
+<its stakes, in one or two sentences>
+
+- a) **<option> (recommended)**. <anchor>   ← recommended: non-taste questions only
+- b) **<option>**. <anchor>
+- c) **<option>**. <anchor>
+- d) **<option>**. <anchor>
+- e) Show me instead: send pictures or links   ← taste questions only
+- f) Something else
+- g) Not sure, suggest one
 
 Reply like: 1a 2c 3g 4b, or write freely.
 ```
+
+**Layout is part of the question:** the question in bold on its own line, the stakes on the next, a blank line, then every option as its own markdown bullet (`- a) ...`). Never run options together in a sentence or on plain lines: chat apps join plain lines into one paragraph. The same for any other list inside a question (yes/no items, extras): one bullet each, never a `·`-separated line. A blank line between questions.
 
 Never more than 4 questions on screen unless the user asks for more. Report each review in three short blocks at most (clash, opened, closed), then the meter, then the round. Never narrate your reasoning.
 
